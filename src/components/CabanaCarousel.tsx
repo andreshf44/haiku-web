@@ -30,7 +30,6 @@ export default function CabanaCarousel() {
   const cabana = cabanas[index]
 
   const next = () => setIndex((prev) => (prev + 1) % cabanas.length)
-  const prev = () => setIndex((prev) => (prev - 1 + cabanas.length) % cabanas.length)
   const goTo = (i: number) => setIndex(i)
 
   useEffect(() => {
