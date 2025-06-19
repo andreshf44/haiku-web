@@ -27,9 +27,10 @@ const cabanas = {
 } as const
 
 
+type CabanaSlug = keyof typeof cabanas;
+
 export default function Page({ params }: { params: { slug: string } }) {
-    const { slug } = params;
-    const cabana = cabanas[slug as keyof typeof cabanas];
+  const cabana = cabanas[params.slug as CabanaSlug];
   
     if (!cabana) return notFound();
   
