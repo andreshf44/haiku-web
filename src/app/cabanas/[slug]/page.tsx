@@ -27,8 +27,13 @@ const cabanas = {
 } as const
 
 type CabanaSlug = keyof typeof cabanas
+interface PageProps {
+    params: {
+      slug: string
+    }
+  }
 
-export default function CabanaPage({ params }: { params: { slug: string } }) {
+export default async function CabanaPage({ params }: PageProps) {
   const slug = params.slug as CabanaSlug
   const cabana = cabanas[slug]
 
