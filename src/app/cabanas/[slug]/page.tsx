@@ -26,16 +26,10 @@ const cabanas = {
   }
 } as const
 
-type PageProps = {
-    params: {
-      slug: keyof typeof cabanas;
-    };
-};
 
-
-export default function Page({ params }: PageProps) {
+export default function Page({ params }: { params: { slug: string } }) {
     const { slug } = params;
-    const cabana = cabanas[slug];
+    const cabana = cabanas[slug as keyof typeof cabanas];
   
     if (!cabana) return notFound();
   
@@ -118,7 +112,5 @@ export default function Page({ params }: PageProps) {
   
   // Agregado para rutas estáticas
   export async function generateStaticParams() {
-    return Object.keys(cabanas).map((slug) => ({
-      slug
-    }));
+    return Object.keys(cabanas).map((slug) => ({ slug }));
   }
