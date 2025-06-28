@@ -4,6 +4,7 @@ import ReservaFlotante from './ReservaFlotante'
 import CabanaCarousel from './CabanaCarousel'
 import SeccionesInfo from './SeccionesInfo'
 import QuienesSomos from './QuienesSomos'
+import Alojamientos from './Alojamientos'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="bg-[#efe9d7]">{children}
         <CabanaCarousel />
         <QuienesSomos />
+        <Alojamientos/>
         <SeccionesInfo />
       </main>
       <ReservaFlotante />
