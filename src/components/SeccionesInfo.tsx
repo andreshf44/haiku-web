@@ -23,4 +23,4 @@ export default function SeccionesInfo() {
         </div>
       </section>
     )
-  }
+}
