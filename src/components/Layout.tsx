@@ -5,6 +5,7 @@ import CabanaCarousel from './CabanaCarousel'
 import SeccionesInfo from './SeccionesInfo'
 import QuienesSomos from './QuienesSomos'
 import Alojamientos from './Alojamientos'
+import Reservar from './Reservar'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <QuienesSomos />
         <Alojamientos/>
         <SeccionesInfo />
+        <Reservar/>
       </main>
       <ReservaFlotante />
       <Footer />
