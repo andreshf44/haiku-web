@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function HomePage() {
   return (
     <Layout>
-      <div className="relative pt-[45px]">
+      <div id='home' className="relative pt-[45px]">
         {/* Hero fijo al inicio */}
         <section className="sticky top-0 h-screen overflow-hidden">
           {/* Overlay opcional para contraste */}

@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-5 py-4">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-[#004421]">
-            <a href="/">Haiku</a>
+            <a href="#home">Haiku</a>
         </h1>
 
         {/* Desktop menu */}
