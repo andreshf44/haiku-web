@@ -13,33 +13,40 @@ export default function ReservaFlotante() {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsExpanded(false)
+      } else {
+        setIsExpanded(true)
       }
     }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
-  // Alternar expansión manual
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev)
   }
 
   return (
-    <div className="fixed bottom-[25px] right-[25px] w-[25vw] z-50">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-32px)] md:w-[380px] max-w-[95vw]">
       {isExpanded ? (
-        <div className="bg-[#efe9d7] shadow-lg rounded-xl p-4 text-white">
-          <div className="text-[#004421] font-semibold text-center mb-4">Selecciona tu cabaña</div>
+        <div className="bg-[#efe9d7] shadow-xl rounded-2xl p-4 text-white border border-[#d9d2bf]">
+          <div className="text-[#004421] font-semibold text-center mb-4 text-sm md:text-base">
+            Selecciona tu cabaña
+          </div>
 
           {/* Selector de casas */}
-          <div className="flex justify-between mb-4">
+          <div className="flex gap-2 mb-4">
             {['Mizu', 'Yuki', 'Kumo'].map((nombre) => (
               <button
                 key={nombre}
                 onClick={() => setCasa(nombre)}
-                className={`flex-1 mx-1 px-3 py-2 rounded-full text-sm font-medium border transition ${
+                className={`flex-1 px-2 md:px-3 py-2 rounded-full text-xs md:text-sm font-medium border transition ${
                   casa === nombre
-                    ? 'bg-[#01552a] text-white border-white'
-                    : 'bg-white text-[#004421] border-white hover:bg-[#01552a] hover:text-white'
+                    ? 'bg-[#01552a] text-white border-[#01552a]'
+                    : 'bg-white text-[#004421] border-[#d8d8d8] hover:bg-[#01552a] hover:text-white'
                 }`}
               >
                 {nombre}
@@ -48,30 +55,35 @@ export default function ReservaFlotante() {
           </div>
 
           {/* Fechas */}
-          <div className="flex gap-2 mb-4">
+          <div className="flex flex-col md:flex-row gap-3 mb-4">
             <div className="flex-1">
-              <label className="block text-xs text-[#004421] mb-1">Ingreso</label>
+              <label className="block text-xs text-[#004421] mb-1">
+                Ingreso
+              </label>
               <input
                 type="date"
                 value={fechaInicio}
                 onChange={(e) => setFechaInicio(e.target.value)}
-                className="w-full p-2 rounded text-[#016630] border border-white bg-white text-sm"
+                className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm"
               />
             </div>
+
             <div className="flex-1">
-              <label className="block text-xs text-[#004421] mb-1">Salida</label>
+              <label className="block text-xs text-[#004421] mb-1">
+                Salida
+              </label>
               <input
                 type="date"
                 value={fechaSalida}
                 onChange={(e) => setFechaSalida(e.target.value)}
-                className="w-full p-2 rounded text-[#016630] border border-white bg-white text-sm"
+                className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm"
               />
             </div>
           </div>
 
           {/* Botón reservar */}
           <button
-            className="w-full bg-[#01552a] text-white font-semibold py-2 rounded hover:bg-[#004421] transition"
+            className="w-full bg-[#01552a] text-white font-semibold py-3 rounded-xl hover:bg-[#004421] transition"
             onClick={toggleExpand}
           >
             Reservar
@@ -80,7 +92,7 @@ export default function ReservaFlotante() {
       ) : (
         <button
           onClick={toggleExpand}
-          className="relative     position: relative left-[14vw] bg-[#01552a] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[#004421] transition w-[10vw]"
+          className="ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base"
         >
           Reservar
         </button>

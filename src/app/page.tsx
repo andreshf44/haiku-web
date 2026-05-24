@@ -1,49 +1,39 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import Image from 'next/image'
 
 export default function HomePage() {
-  const [showHero, setShowHero] = useState(true)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowHero(window.scrollY < 50)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <Layout>
-      <div className="text-center relative">
-        {/* Contenedor del texto + imagen */}
-        <div
-          className={`fixed w-full h-screen overflow-hidden transition-opacity duration-700 ease-in-out z-10 ${
-            showHero ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-        >
-          {/* Texto sobre la imagen */}
-          <div className="absolute z-20 text-[#efe9d7] p-[25px] text-left">
-            <h2 className="text-[24px]">
+      <div className="relative pt-[45px]">
+        {/* Hero fijo al inicio */}
+        <section className="sticky top-0 h-screen overflow-hidden">
+          {/* Overlay opcional para contraste */}
+          <div className="absolute inset-0 bg-black/20 z-10" />
+
+          {/* Texto sobre imagen */}
+          <div className="absolute z-20 text-[#efe9d7] p-[25px] text-left max-w-[600px]">
+            <h2 className="text-[24px] md:text-[36px] leading-tight">
               “No es solo un lugar, es un respiro que se siente en la piel”.
             </h2>
-            <p className="text-[18px] italic">
-              Cabañas de inspiración japonesa, terapias de bienestar y conexión con lo esencial, en medio del bosque.
+
+            <p className="text-[18px] italic mt-4">
+              Cabañas de inspiración japonesa, terapias de bienestar y
+              conexión con lo esencial, en medio del bosque.
             </p>
           </div>
 
-          {/* Imagen de fondo */}
+          {/* Imagen fondo */}
           <Image
             src="/images/portadaPrueba.jpg"
             alt="Vista natural de Haiku"
             fill
-            style={{ objectFit: 'cover' }}
+            className="object-cover"
             priority
           />
-        </div>
+        </section>
+        
       </div>
     </Layout>
   )

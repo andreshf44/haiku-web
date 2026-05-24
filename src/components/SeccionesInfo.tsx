@@ -46,7 +46,7 @@ const detalles = [
 
 export default function SeccionesInfo() {
     return (
-      <section className="my-12 container mx-auto px-4">
+      <section id='experiencias' className="my-12 container mx-auto px-4">
         <h3 className='text-center text-[26px] text-[#01552a] mb-[5vh] font-semibold'>Experiencias Haiku</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center">
           {secciones.map(({ title, icon: Icon }) => (

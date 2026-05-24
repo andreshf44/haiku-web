@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 export default function KumoPage() {
   return (
+    
     <div className="bg-[#f5eedf]">
       {/* Hero */}
       <section className="relative h-[70vh] w-full">

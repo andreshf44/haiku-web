@@ -36,7 +36,7 @@ export default function Reservar() {
   }
 
   return (
-    <section className="bg-[#004421] py-16">
+    <section id='reservar' className="bg-[#004421] py-16">
       <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-xl">
         <h2 className="text-3xl font-bold text-[#b98f5a] mb-8 text-center">
           Reserva tu cabaña
