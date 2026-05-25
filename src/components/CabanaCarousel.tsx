@@ -44,7 +44,7 @@ export default function CabanaCarousel() {
   }, [])
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between bg-[#f5f5ef] w-full mx-auto h-[80vh] px-[25px] transition-all duration-500">
+    <section className="flex flex-col md:flex-row items-center justify-between bg-[#f5f5ef] w-full mx-auto h-[80vh] pt-[120px] md:pt-0 px-[25px] transition-all duration-500">
 
       {/* ================= MOBILE ================= */}
       <div className="relative w-full md:hidden">

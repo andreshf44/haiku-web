@@ -47,10 +47,10 @@ const detalles = [
 export default function SeccionesInfo() {
     return (
       <section id='experiencias' className="my-12 container mx-auto px-4">
-        <h3 className='text-center text-[26px] text-[#01552a] mb-[5vh] font-semibold'>Experiencias Haiku</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center">
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mb-6 text-center text-[#004421]'>Experiencias Haiku</h2>
+        <div className="flex flex-wrap justify-center gap-6 md:grid md:grid-cols-5 md:gap-8 text-center">
           {secciones.map(({ title, icon: Icon }) => (
-            <div key={title} className="flex flex-col items-center">
+            <div key={title} className="flex flex-col items-center w-[28%] md:w-auto">
               <Icon className="text-5xl text-[#b98f5a] mb-3 cursor-pointer" />
               <h3 className="text-lg font-semibold text-[#b98f5a] cursor-pointer">{title}</h3>
             </div>

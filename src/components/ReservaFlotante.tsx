@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function ReservaFlotante() {
   const [casa, setCasa] = useState('Mizu')
@@ -8,7 +8,12 @@ export default function ReservaFlotante() {
   const [fechaSalida, setFechaSalida] = useState('')
   const [isExpanded, setIsExpanded] = useState(true)
 
-  // Detectar scroll para contraer
+  const fechaInicioRef = useRef<HTMLInputElement>(null)
+  const fechaSalidaRef = useRef<HTMLInputElement>(null)
+
+  // Número WhatsApp
+  const telefonoWhatsApp = '56944177821'
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -27,6 +32,40 @@ export default function ReservaFlotante() {
 
   const toggleExpand = () => {
     setIsExpanded((prev) => !prev)
+  }
+
+  const openDatePicker = (
+    ref: React.RefObject<HTMLInputElement | null>
+  ) => {
+    if (ref.current) {
+      ref.current.showPicker?.()
+      ref.current.focus()
+    }
+  }
+
+  const handleReserva = () => {
+    if (!fechaInicio || !fechaSalida) {
+      alert('Por favor selecciona fecha de ingreso y salida')
+      return
+    }
+
+    const mensaje = `
+Hola Haiku 🌿
+
+Quiero consultar disponibilidad para la siguiente reserva:
+
+🏡 Cabaña: ${casa}
+📅 Entrada: ${fechaInicio}
+📅 Salida: ${fechaSalida}
+
+Quedo atento/a. Muchas gracias.
+    `
+
+    const whatsappUrl = `https://wa.me/${telefonoWhatsApp}?text=${encodeURIComponent(
+      mensaje
+    )}`
+
+    window.open(whatsappUrl, '_blank')
   }
 
   return (
@@ -56,35 +95,51 @@ export default function ReservaFlotante() {
 
           {/* Fechas */}
           <div className="flex flex-col md:flex-row gap-3 mb-4">
+            {/* Entrada */}
             <div className="flex-1">
               <label className="block text-xs text-[#004421] mb-1">
                 Ingreso
               </label>
-              <input
-                type="date"
-                value={fechaInicio}
-                onChange={(e) => setFechaInicio(e.target.value)}
-                className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm"
-              />
+
+              <div
+                onClick={() => openDatePicker(fechaInicioRef)}
+                className="w-full cursor-pointer"
+              >
+                <input
+                  ref={fechaInicioRef}
+                  type="date"
+                  value={fechaInicio}
+                  onChange={(e) => setFechaInicio(e.target.value)}
+                  className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm cursor-pointer"
+                />
+              </div>
             </div>
 
+            {/* Salida */}
             <div className="flex-1">
               <label className="block text-xs text-[#004421] mb-1">
                 Salida
               </label>
-              <input
-                type="date"
-                value={fechaSalida}
-                onChange={(e) => setFechaSalida(e.target.value)}
-                className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm"
-              />
+
+              <div
+                onClick={() => openDatePicker(fechaSalidaRef)}
+                className="w-full cursor-pointer"
+              >
+                <input
+                  ref={fechaSalidaRef}
+                  type="date"
+                  value={fechaSalida}
+                  onChange={(e) => setFechaSalida(e.target.value)}
+                  className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm cursor-pointer"
+                />
+              </div>
             </div>
           </div>
 
           {/* Botón reservar */}
           <button
             className="w-full bg-[#01552a] text-white font-semibold py-3 rounded-xl hover:bg-[#004421] transition"
-            onClick={toggleExpand}
+            onClick={handleReserva}
           >
             Reservar
           </button>
