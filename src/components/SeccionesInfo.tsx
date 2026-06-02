@@ -46,8 +46,8 @@ const detalles = [
 
 export default function SeccionesInfo() {
     return (
-      <section id='experiencias' className="my-12 container mx-auto px-4">
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mb-6 text-center text-[#004421]'>Experiencias Haiku</h2>
+      <section id='experiencias' className="py-22 container mx-auto px-4">
+        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mb-12 text-center text-[#004421]'>Experiencias Haiku</h2>
         <div className="flex flex-wrap justify-center gap-6 md:grid md:grid-cols-5 md:gap-8 text-center">
           {secciones.map(({ title, icon: Icon }) => (
             <div key={title} className="flex flex-col items-center w-[28%] md:w-auto">
@@ -57,7 +57,7 @@ export default function SeccionesInfo() {
           ))}
         </div>
 
-        <div className="mt-16 space-y-20">
+        <div className="mt-18 space-y-20">
         {detalles.map(({ title, description, image }, index) => (
           <div
             key={title}

@@ -36,11 +36,11 @@ export default function Navbar() {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8 text-[#004421]">
-          <Link href="#quienes-somos">{t.about}</Link>
-          <Link href="#alojamientos">{t.stays}</Link>
-          <Link href="#experiencias">{t.experiences}</Link>
-          <Link href="#reservar">{t.book}</Link>
-          <Link href="#contacto">{t.contact}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#quienes-somos">{t.about}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#alojamientos">{t.stays}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#experiencias">{t.experiences}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#reservar">{t.book}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#contacto">{t.contact}</Link>
 
           <select
             value={lang}

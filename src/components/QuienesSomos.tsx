@@ -4,7 +4,7 @@ export default function QuienesSomos() {
   return (
     <section
       id="quienes-somos"
-      className="bg-[#f5f5e9] w-full py-16 px-4 md:px-8 lg:px-12"
+      className="bg-[#f5f5e9] w-full py-36 px-4 md:px-0"
     >
       <div className="max-w-7xl mx-auto">
 
