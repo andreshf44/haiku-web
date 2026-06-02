@@ -15,7 +15,7 @@ export default function YukiPage() {
         <div className="absolute inset-0 flex flex-col justify-center items-start text-[#f5eedf] p-10">
           <h1 className="text-5xl font-bold drop-shadow-xl">Yuki</h1>
           <Link
-            href="/reservar"
+            href="/?cabana=Yuki#reservar"
             className="mt-4 bg-[#c19454] text-[#3c371f] px-6 py-2 rounded hover:bg-[#b88a4c] transition"
           >
             Reservar esta cabaña

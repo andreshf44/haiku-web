@@ -31,16 +31,16 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-5 py-4">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-[#004421]">
-            <a href="#home">Haiku</a>
+            <a href="/#home">Haiku</a>
         </h1>
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8 text-[#004421]">
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#quienes-somos">{t.about}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#alojamientos">{t.stays}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#experiencias">{t.experiences}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#reservar">{t.book}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="#contacto">{t.contact}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#quienes-somos">{t.about}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#alojamientos">{t.stays}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#experiencias">{t.experiences}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#reservar">{t.book}</Link>
+          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#contacto">{t.contact}</Link>
 
           <select
             value={lang}

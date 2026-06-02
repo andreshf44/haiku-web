@@ -1,8 +1,11 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 export default function Reservar() {
+  const searchParams = useSearchParams()
+
   const [form, setForm] = useState({
     nombre: '',
     telefono: '',
@@ -12,6 +15,17 @@ export default function Reservar() {
     cabana: '',
     mensaje: '',
   })
+
+  useEffect(() => {
+    const cabanaUrl = searchParams.get('cabana')
+  
+    if (cabanaUrl) {
+      setForm((prev) => ({
+        ...prev,
+        cabana: cabanaUrl,
+      }))
+    }
+  }, [searchParams])
 
   const fechaEntradaRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null) 
