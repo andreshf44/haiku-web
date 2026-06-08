@@ -28,10 +28,13 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 z-50 w-full bg-[#f5f5ef]/95 backdrop-blur-md shadow-sm">
-      <div className="flex items-center justify-between px-5 py-4">
+      <div className="flex items-center justify-between px-5 py-2">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-[#004421]">
-            <a href="/#home">Haiku</a>
+        <h1 className="flex items-center text-3xl font-bold text-[#004421]"
+            style={{ fontFamily: 'Cormorant Garamond, serif' }}
+        >
+          <img src="/images/logo-haiku.png" alt="logo" className="h-12 object-contain" />
+          <a href="/#home">Haiku</a>
         </h1>
 
         {/* Desktop menu */}

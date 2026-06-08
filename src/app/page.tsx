@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import Image from 'next/image'
+import { FiFeather, FiHome, FiSun } from 'react-icons/fi'
 
 const images = [
   '/images/portadaPrueba.jpg',
@@ -23,10 +24,10 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <div id="home" className="relative pt-[45px]">
+      <div id="home" className="relative">
         {/* Hero */}
         <section className="sticky top-0 h-screen overflow-hidden">
-          
+
           {/* Imágenes */}
           <div className="absolute inset-0">
             {images.map((image, index) => (
@@ -55,7 +56,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/20 z-10" />
 
           {/* Texto */}
-          <div className="absolute z-20 p-[25px] text-left max-w-[600px] text-[#efe9d7]">
+          <div className="absolute top-20 z-20 p-[25px] text-left max-w-[600px] text-[#efe9d7]">
             <h2 className="text-[24px] md:text-[36px] leading-tight">
               “No es solo un lugar, es un respiro que se siente en la piel”.
             </h2>
@@ -79,7 +80,25 @@ export default function HomePage() {
                 />
               ))}
             </div>
+
+            {/* ÍCONOS */}
+            <div className="flex justify-evenly items-baseline pt-20 font-bold" >
+              <div className='grid place-items-center'>
+                <img src="/images/bienestar-icon.png" alt="bienestar" className='w-12'/>
+                <span className='text-[#b98f5a]'>Bienestar</span>
+              </div>
+              <div className='grid place-items-center'>
+                <img src="/images/alojamiento-icon.png" alt="alojamiento" className='w-16'/>
+                <span className='text-[#b98f5a] '>Alojamiento</span>
+              </div>
+              <div className='grid place-items-center'>
+                <img src="/images/experiencias-icon.png" alt="experiencias" className='w-16'/>
+                <span className='text-[#b98f5a]'>Experiencias</span>
+              </div>
+          
+            </div>
           </div>
+
         </section>
       </div>
     </Layout>

@@ -6,7 +6,8 @@ export default function ReservaFlotante() {
   const [casa, setCasa] = useState('Mizu')
   const [fechaInicio, setFechaInicio] = useState('')
   const [fechaSalida, setFechaSalida] = useState('')
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   const fechaInicioRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null)
@@ -17,14 +18,15 @@ export default function ReservaFlotante() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
+        setHasScrolled(true)
         setIsExpanded(false)
-      } else {
-        setIsExpanded(true)
+      }else{
+        setHasScrolled(false)
       }
     }
-
+  
     window.addEventListener('scroll', handleScroll)
-
+  
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -147,7 +149,11 @@ Quedo atento/a. Muchas gracias.
       ) : (
         <button
           onClick={toggleExpand}
-          className="ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base"
+          className={
+            hasScrolled
+              ? 'ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base'
+              : 'ml-auto block text-white px-5 py-3 border-2 border-[#01552a] rounded w-[70%] bg-transparent hover:bg-[#01552a] hover:text-white transition text-sm md:text-base'
+          }
         >
           Reservar
         </button>
