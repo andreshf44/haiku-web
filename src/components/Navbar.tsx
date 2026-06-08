@@ -33,7 +33,7 @@ export default function Navbar() {
         <h1 className="flex items-center text-3xl font-bold text-[#004421]"
             style={{ fontFamily: 'Cormorant Garamond, serif' }}
         >
-          <img src="/images/logo-haiku.png" alt="logo" className="h-12 object-contain" />
+          <img src="/images/logo-haiku.png" alt="logo" className="h-10 object-contain" />
           <a href="/#home">Haiku</a>
         </h1>
 
