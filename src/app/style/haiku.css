@@ -1,0 +1,56 @@
+:root {
+
+    /* Greens */
+    --haiku-green: #01552a; /*Botones*/
+    --haiku-green-hover: #004421; /*hover*/
+    --haiku-green-dark: #01341a;
+  
+    /* Backgrounds */
+    --haiku-bg-primary: #f5f5ef;
+    --haiku-bg-secondary: #f5f5e9;
+    --haiku-bg-accent: #efe9d7;
+    --haiku-bg-dark: #01341a; 
+  
+    /* Text */
+    --color-text-primary-dark: #004421; /*Titulo*/
+    --color-text-primary-light: #736536; /*Titulo fondo oscuro*/ 
+    --color-text-secondary-dark: #4a5a52; /*Parrafos*/
+    --color-text-secondary-light: #efe9d7; /*Parrafos fondo oscuro*/
+    --color-text-accent: #b98f5a; /*Concepto de iconos*/
+  
+  }
+
+/*Color textos*/
+
+.main-text-light{
+    color: var(--color-text-primary-light);
+}
+
+.secondary-text-light{
+    color: var(--color-text-secondary-light);
+    transition: color 0.3s ease;
+    &:hover{
+        color: var(--color-text-accent)
+    }
+}
+
+.text-icon{
+    color: var(--color-text-accent);
+}
+
+.main-text-dark{
+    color: var(--color-text-primary-dark);
+}
+
+.secondary-text-dark{
+    color: var(--color-text-secondary-dark);
+}
+
+.no-hover:hover{
+    color: var(--color-text-secondary-light);
+}
+
+/*background*/
+.bg-primary{
+    background: var(--haiku-bg-primary);
+}

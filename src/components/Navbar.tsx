@@ -27,10 +27,10 @@ export default function Navbar() {
   const t = translations[lang]
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full bg-[#f5f5ef]/95 backdrop-blur-md shadow-sm">
-      <div className="flex items-center justify-between px-5 py-2">
+    <nav className="fixed top-0 left-0 z-50 w-full">
+      <div className="flex items-center justify-between px-5 py-4">
         {/* Logo */}
-        <h1 className="flex items-center text-3xl font-bold text-[#004421]"
+        <h1 className="flex items-center text-3xl font-bold main-text-light"
             style={{ fontFamily: 'Cormorant Garamond, serif' }}
         >
           <img src="/images/logo-haiku.png" alt="logo" className="h-10 object-contain" />
@@ -38,19 +38,19 @@ export default function Navbar() {
         </h1>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center gap-8 text-[#004421]">
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#quienes-somos">{t.about}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#alojamientos">{t.stays}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#experiencias">{t.experiences}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#reservar">{t.book}</Link>
-          <Link className='hover:bg-[#efe9d7] p-[5px]' href="/#contacto">{t.contact}</Link>
+        <div className="hidden md:flex items-center gap-8">
+          <Link className='secondary-text-light p-[5px]' href="/#quienes-somos">{t.about}</Link>
+          <Link className='secondary-text-light p-[5px]' href="/#alojamientos">{t.stays}</Link>
+          <Link className='secondary-text-light p-[5px]' href="/#experiencias">{t.experiences}</Link>
+          <Link className='secondary-text-light p-[5px]' href="/#reservar">{t.book}</Link>
+          <Link className='secondary-text-light p-[5px]' href="/#contacto">{t.contact}</Link>
 
           <select
             value={lang}
             onChange={(e) =>
               setLang(e.target.value as 'es' | 'en')
             }
-            className="border rounded-lg px-2 py-1 bg-transparent"
+            className="secondary-text-light border rounded-lg px-2 py-1 bg-transparent"
           >
             <option value="es">ES</option>
             <option value="en">EN</option>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function ReservaFlotante() {
   const [casa, setCasa] = useState('Mizu')
@@ -12,7 +13,6 @@ export default function ReservaFlotante() {
   const fechaInicioRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null)
 
-  // Número WhatsApp
   const telefonoWhatsApp = '56944177821'
 
   useEffect(() => {
@@ -20,13 +20,13 @@ export default function ReservaFlotante() {
       if (window.scrollY > 50) {
         setHasScrolled(true)
         setIsExpanded(false)
-      }else{
+      } else {
         setHasScrolled(false)
       }
     }
-  
+
     window.addEventListener('scroll', handleScroll)
-  
+
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -36,9 +36,7 @@ export default function ReservaFlotante() {
     setIsExpanded((prev) => !prev)
   }
 
-  const openDatePicker = (
-    ref: React.RefObject<HTMLInputElement | null>
-  ) => {
+  const openDatePicker = (ref: React.RefObject<HTMLInputElement | null>) => {
     if (ref.current) {
       ref.current.showPicker?.()
       ref.current.focus()
@@ -71,80 +69,90 @@ Quedo atento/a. Muchas gracias.
   }
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-32px)] md:w-[380px] max-w-[95vw]">
+    <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-32px)] md:w-[390px] max-w-[95vw]">
       {isExpanded ? (
-        <div className="bg-[#efe9d7] shadow-xl rounded-2xl p-4 text-white border border-[#d9d2bf]">
-          <div className="text-[#004421] font-semibold text-center mb-4 text-sm md:text-base">
-            Selecciona tu cabaña
+        <div className="bg-primary shadow-2xl rounded-[28px] p-6 md:p-7 border border-[#d9d2bf]">
+          <div className="text-center mb-7">
+            <p className="text-icon text-[11px] tracking-[0.35em] uppercase mb-2">
+              Haiku
+            </p>
+
+            <h3 className="main-text-dark text-[24px] font-semibold leading-tight">
+              Reserva tu experiencia
+            </h3>
+
+            <p className="secondary-text-dark text-sm mt-2">
+              Consulta disponibilidad para tu estadía en el bosque.
+            </p>
           </div>
 
-          {/* Selector de casas */}
-          <div className="flex gap-2 mb-4">
-            {['Mizu', 'Yuki', 'Kumo'].map((nombre) => (
-              <button
-                key={nombre}
-                onClick={() => setCasa(nombre)}
-                className={`flex-1 px-2 md:px-3 py-2 rounded-full text-xs md:text-sm font-medium border transition ${
-                  casa === nombre
-                    ? 'bg-[#01552a] text-white border-[#01552a]'
-                    : 'bg-white text-[#004421] border-[#d8d8d8] hover:bg-[#01552a] hover:text-white'
-                }`}
-              >
-                {nombre}
-              </button>
-            ))}
+          <div className="mb-6">
+            <label className="text-icon block text-[11px] uppercase tracking-[0.18em] mb-2">
+              Cabaña
+            </label>
+
+            <select
+              value={casa}
+              onChange={(e) => setCasa(e.target.value)}
+              className="main-text-dark w-full bg-transparent border-0 border-b border-[#cfc6ae] rounded-none px-0 py-3 text-base font-medium focus:outline-none focus:border-[#01552a]"
+            >
+              <option value="Mizu">Mizu</option>
+              <option value="Yuki">Yuki</option>
+              <option value="Kumo">Kumo</option>
+            </select>
           </div>
 
-          {/* Fechas */}
-          <div className="flex flex-col md:flex-row gap-3 mb-4">
-            {/* Entrada */}
-            <div className="flex-1">
-              <label className="block text-xs text-[#004421] mb-1">
-                Ingreso
+          <div className="grid grid-cols-2 gap-5 mb-8">
+            <div>
+              <label className="text-icon block text-[11px] uppercase tracking-[0.18em] mb-2">
+                Entrada
               </label>
 
               <div
                 onClick={() => openDatePicker(fechaInicioRef)}
-                className="w-full cursor-pointer"
+                className="cursor-pointer"
               >
                 <input
                   ref={fechaInicioRef}
                   type="date"
                   value={fechaInicio}
                   onChange={(e) => setFechaInicio(e.target.value)}
-                  className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm cursor-pointer"
+                  className="main-text-dark w-full bg-transparent border-0 border-b border-[#cfc6ae] rounded-none px-0 py-3 text-sm cursor-pointer focus:outline-none focus:border-[#01552a]"
                 />
               </div>
             </div>
 
-            {/* Salida */}
-            <div className="flex-1">
-              <label className="block text-xs text-[#004421] mb-1">
+            <div>
+              <label className="text-icon block text-[11px] uppercase tracking-[0.18em] mb-2">
                 Salida
               </label>
 
               <div
                 onClick={() => openDatePicker(fechaSalidaRef)}
-                className="w-full cursor-pointer"
+                className="cursor-pointer"
               >
                 <input
                   ref={fechaSalidaRef}
                   type="date"
                   value={fechaSalida}
                   onChange={(e) => setFechaSalida(e.target.value)}
-                  className="w-full p-2 rounded-lg text-[#016630] border border-[#d8d8d8] bg-white text-sm cursor-pointer"
+                  className="main-text-dark w-full bg-transparent border-0 border-b border-[#cfc6ae] rounded-none px-0 py-3 text-sm cursor-pointer focus:outline-none focus:border-[#01552a]"
                 />
               </div>
             </div>
           </div>
 
-          {/* Botón reservar */}
           <button
             className="w-full bg-[#01552a] text-white font-semibold py-3 rounded-xl hover:bg-[#004421] transition"
             onClick={handleReserva}
           >
-            Reservar
+            Consulta disponibilidad
           </button>
+
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm font-medium secondary-text-dark">
+            <FaWhatsapp size={16} />
+            <span>Respuesta vía WhatsApp</span>
+          </div>
         </div>
       ) : (
         <button
