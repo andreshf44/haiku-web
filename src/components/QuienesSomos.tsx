@@ -28,9 +28,11 @@ export default function QuienesSomos() {
           <div>
             
             {/* TITLE SOLO DESKTOP */}
-            <h2 className="hidden md:block text-4xl lg:text-5xl font-bold mb-6 text-[#004421] text-right">
+            <h4 className="title-introduction text-3x1 lg:text-4x1 hidden md:block">
               Quiénes Somos
-            </h2>
+            </h4>
+
+            <h1 className="title text-4xl lg:text-5xl">Un refugio para reconectar contigo</h1>
 
             <p className="text-lg md:text-xl leading-relaxed text-[#004421] text-center md:text-right">
               En Haiku, creemos en el equilibrio entre la naturaleza y la

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 const translations = {
@@ -23,11 +23,29 @@ const translations = {
 export default function Navbar() {
   const [lang, setLang] = useState<'es' | 'en'>('es')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   const t = translations[lang]
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > window.innerHeight * 0.8)
+    }
+  
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+  
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full">
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-500 ${
+        hasScrolled
+          ? 'bg-[#f5f5ef]/70 backdrop-blur-sm shadow-md border-b border-[#d9d2bf]'
+          : 'bg-transparent shadow-none'
+      }`}
+    >
       <div className="flex items-center justify-between px-5 py-4">
         {/* Logo */}
         <h1 className="flex items-center text-3xl font-bold main-text-light"
@@ -39,18 +57,42 @@ export default function Navbar() {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8">
-          <Link className='secondary-text-light p-[5px]' href="/#quienes-somos">{t.about}</Link>
-          <Link className='secondary-text-light p-[5px]' href="/#alojamientos">{t.stays}</Link>
-          <Link className='secondary-text-light p-[5px]' href="/#experiencias">{t.experiences}</Link>
-          <Link className='secondary-text-light p-[5px]' href="/#reservar">{t.book}</Link>
-          <Link className='secondary-text-light p-[5px]' href="/#contacto">{t.contact}</Link>
+          <Link className={` p-[5px] transition-all duration-500 ${
+            hasScrolled
+              ? 'main-text-dark hover-secondary-light'
+              : 'secondary-text-light hover-secondary-light'
+            }`} href="/#quienes-somos">{t.about}</Link>
+          <Link className={` p-[5px] transition-all duration-500 ${
+            hasScrolled
+              ? 'main-text-dark hover-secondary-light'
+              : 'secondary-text-light hover-secondary-light'
+            }`} href="/#alojamientos">{t.stays}</Link>
+          <Link className={` p-[5px] transition-all duration-500 ${
+            hasScrolled
+              ? 'main-text-dark hover-secondary-light'
+              : 'secondary-text-light hover-secondary-light'
+            }`} href="/#experiencias">{t.experiences}</Link>
+          <Link className={` p-[5px] transition-all duration-500 ${
+            hasScrolled
+              ? 'main-text-dark hover-secondary-light'
+              : 'secondary-text-light hover-secondary-light'
+            }`} href="/#reservar">{t.book}</Link>
+          <Link className={` p-[5px] transition-all duration-500 ${
+            hasScrolled
+              ? 'main-text-dark hover-secondary-light'
+              : 'secondary-text-light hover-secondary-light'
+            }`} href="/#contacto">{t.contact}</Link>
 
           <select
             value={lang}
             onChange={(e) =>
               setLang(e.target.value as 'es' | 'en')
             }
-            className="secondary-text-light border rounded-lg px-2 py-1 bg-transparent"
+            className={` border rounded-lg px-2 py-1 bg-transparent transition-all duration-500 ${
+              hasScrolled
+                ? 'main-text-dark hover-secondary-light'
+                : 'secondary-text-light hover-secondary-light'
+            }`}
           >
             <option value="es">ES</option>
             <option value="en">EN</option>
@@ -63,19 +105,19 @@ export default function Navbar() {
           className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center"
         >
           <span
-            className={`absolute h-[2px] w-7 bg-[#004421] rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
               menuOpen ? 'rotate-45' : '-translate-y-2'
             }`}
           />
 
           <span
-            className={`absolute h-[2px] w-7 bg-[#004421] rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
 
           <span
-            className={`absolute h-[2px] w-7 bg-[#004421] rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
               menuOpen ? '-rotate-45' : 'translate-y-2'
             }`}
           />
@@ -90,8 +132,8 @@ export default function Navbar() {
             : 'opacity-0 -translate-y-5 pointer-events-none'
         }`}
       >
-        <div className="bg-[#efe9d7]/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-[#d7d0bf]">
-          <div className="flex flex-col gap-5 text-[#004421] text-lg">
+        <div className="bg-[#efe9d7]/70 backdrop-blur-lg rounded-3xl shadow-2xl p-6 border border-[#d7d0bf]">
+          <div className="flex flex-col gap-5 main-text-dark text-lg">
             <Link
               href="#quienes-somos"
               onClick={() => setMenuOpen(false)}
@@ -132,7 +174,7 @@ export default function Navbar() {
               onChange={(e) =>
                 setLang(e.target.value as 'es' | 'en')
               }
-              className="border rounded-xl px-3 py-2 bg-white text-[#004421]"
+              className="border rounded-xl px-3 py-2 bg-white main-text-dark"
             >
               <option value="es">ES</option>
               <option value="en">EN</option>

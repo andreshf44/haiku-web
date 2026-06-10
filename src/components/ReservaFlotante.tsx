@@ -70,8 +70,39 @@ Quedo atento/a. Muchas gracias.
 
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-32px)] md:w-[390px] max-w-[95vw]">
-      {isExpanded ? (
-        <div className="bg-primary shadow-2xl rounded-[28px] p-6 md:p-7 border border-[#d9d2bf]">
+      <div className={`bg-primary shadow-2xl rounded-[28px] p-6 md:p-7 border border-[#d9d2bf] relative transition-all duration-300 
+        ${
+          isExpanded
+          ? 'opacity-100 translate-y-0 pointer-events-auto'
+          : 'opacity-0 translate-y-5 pointer-events-none'
+        }`}
+      >
+          <button
+            onClick={toggleExpand}
+            aria-label="Cerrar reserva"
+            className="
+              absolute
+              top-5
+              right-5
+              w-7
+              h-7
+              flex
+              items-center
+              justify-center
+              rounded-full
+              main-text-dark
+              bg-transparent
+              border
+              border-[#d9d2bf]
+              hover:bg-[#efe9d7]
+              hover:border-[#b98f5a]
+              transition
+              text-lg
+              leading-none
+            "
+          >
+            ×
+          </button>
           <div className="text-center mb-7">
             <p className="text-icon text-[11px] tracking-[0.35em] uppercase mb-2">
               Haiku
@@ -153,19 +184,26 @@ Quedo atento/a. Muchas gracias.
             <FaWhatsapp size={16} />
             <span>Respuesta vía WhatsApp</span>
           </div>
-        </div>
-      ) : (
-        <button
+      </div>
+      
+      <button
           onClick={toggleExpand}
-          className={
+          className={`
+          ${
             hasScrolled
-              ? 'ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base'
-              : 'ml-auto block text-white px-5 py-3 border-2 border-[#01552a] rounded w-[70%] bg-transparent hover:bg-[#01552a] hover:text-white transition text-sm md:text-base'
+            ? 'ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base'
+            : 'ml-auto block text-white px-5 py-3 border-2 border-[#01552a] rounded w-[70%] bg-transparent hover:bg-[#01552a] hover:text-white transition text-sm md:text-base'
           }
+          ${
+            isExpanded
+            ? 'opacity-0 translate-y-0 pointer-events-none'
+            : 'opacity-100 -translate-y-5 pointer-events-auto md:ml-auto md:mx-0 mx-auto'
+          }`}
+
         >
           Reservar
-        </button>
-      )}
+      </button>
+      
     </div>
   )
 }

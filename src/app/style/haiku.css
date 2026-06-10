@@ -29,10 +29,12 @@
 .secondary-text-light{
     color: var(--color-text-secondary-light);
     transition: color 0.3s ease;
-    &:hover{
-        color: var(--color-text-accent)
-    }
 }
+
+.hover-secondary-light:hover{
+    color: var(--color-text-accent)
+}
+
 
 .text-icon{
     color: var(--color-text-accent);
@@ -53,4 +55,23 @@
 /*background*/
 .bg-primary{
     background: var(--haiku-bg-primary);
+}
+
+.bg-accent{
+    background: var(--haiku-bg-accent);
+}
+
+
+/*Quienes Somos*/
+.title{
+    color: var(--color-text-primary-dark);
+    margin-bottom: 24px;
+    text-align: left;
+    font-weight: 600;
+}
+.title-introduction{
+    color: var( --color-text-accent);
+    margin-bottom: 24px;
+    text-align: left;
+    font-weight: 600;
 }
