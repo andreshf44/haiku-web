@@ -105,19 +105,19 @@ export default function Navbar() {
           className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center"
         >
           <span
-            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-hamburger rounded transition-all duration-300 ${
               menuOpen ? 'rotate-45' : '-translate-y-2'
             }`}
           />
 
           <span
-            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-hamburger rounded transition-all duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
 
           <span
-            className={`absolute h-[2px] w-7 bg-accent rounded transition-all duration-300 ${
+            className={`absolute h-[2px] w-7 bg-hamburger rounded transition-all duration-300 ${
               menuOpen ? '-rotate-45' : 'translate-y-2'
             }`}
           />

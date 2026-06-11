@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function KumoPage() {
+export default function CaneloPage() {
   return (
     
     <div className="bg-[#f5eedf]">
@@ -9,14 +9,14 @@ export default function KumoPage() {
       <section className="relative h-[70vh] w-full">
         <Image
           src="/images/kumo.jpg"
-          alt="Kumo"
+          alt="Canelo"
           fill
           className="object-cover brightness-75"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-start text-[#f5eedf] p-10">
-          <h1 className="text-5xl font-bold drop-shadow-xl">Kumo</h1>
+          <h1 className="text-5xl font-bold drop-shadow-xl">Canelo</h1>
           <Link
-            href="/?cabana=Kumo#reservar"
+            href="/?cabana=Canelo#reservar"
             className="mt-4 bg-[#c19454] text-[#3c371f] px-6 py-2 rounded hover:bg-[#b88a4c] transition"
           >
             Reservar esta cabaña
@@ -28,7 +28,7 @@ export default function KumoPage() {
       <section className="grid md:grid-cols-2 gap-8 p-10">
         <Image
           src="/images/kumo-interior.jpg"
-          alt="Interior de Kumo"
+          alt="Interior de Canelo"
           width={600}
           height={400}
           className="rounded shadow"
@@ -38,7 +38,7 @@ export default function KumoPage() {
             Un espacio pensado para ti
           </h2>
           <p className="text-[#3c371f] leading-relaxed text-lg italic">
-            Kumo, es la cabaña más etérea de Hayku. Su diseño ligero y envolvente ofrece una experiencia suspendida entre el bosque y el cielo. Ideal para desconectar del mundo, reencontrarte con tu cuerpo y respirar profundo. Todo está pensado para el placer tranquilo.
+            Canelo, es la cabaña más etérea de Hayku. Su diseño ligero y envolvente ofrece una experiencia suspendida entre el bosque y el cielo. Ideal para desconectar del mundo, reencontrarte con tu cuerpo y respirar profundo. Todo está pensado para el placer tranquilo.
           </p>
         </div>
       </section>

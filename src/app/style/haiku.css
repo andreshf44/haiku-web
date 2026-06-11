@@ -4,6 +4,8 @@
     --haiku-green: #01552a; /*Botones*/
     --haiku-green-hover: #004421; /*hover*/
     --haiku-green-dark: #01341a;
+    --haiku-gold: #cda264; /*Boton*/
+    --haiku-gold-hover: #b98f5a; /*hover*/
   
     /* Backgrounds */
     --haiku-bg-primary: #f5f5ef;
@@ -57,10 +59,29 @@
     background: var(--haiku-bg-primary);
 }
 
+.bg-secondary{
+    background: var(--haiku-bg-secondary);
+}
+
 .bg-accent{
     background: var(--haiku-bg-accent);
 }
 
+.bg-hamburger{
+    background: var( --color-text-primary-dark);
+}
+
+.bg-button-gold {
+    background: var(--haiku-gold);
+    transition: background 0.3s ease;
+    border-radius: 4px;
+    color: var(--color-text-secondary-light);
+    padding: 12px 45px;
+}
+
+.bg-button-gold:hover {
+    background: var(--haiku-gold-hover);
+}
 
 /*Quienes Somos*/
 .title{
@@ -74,4 +95,20 @@
     margin-bottom: 24px;
     text-align: left;
     font-weight: 600;
+}
+
+/*Hero cabañas*/
+.content-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-left: 35px;
+}
+.content-icons{
+    font-size: 12px;
+    margin-bottom: 12px;
+    img{
+        width: 40px;
+    }
 }

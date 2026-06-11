@@ -29,7 +29,7 @@ export default function Reservar() {
   const fechaEntradaRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null) 
 
-  const cabanas = ['Mizu', 'Kumo', 'Yuki']
+  const cabanas = ['Roble', 'Canelo', 'Yuki']
 
   const handleChange = (
     e: React.ChangeEvent<

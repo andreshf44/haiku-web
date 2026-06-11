@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 
 export default function ReservaFlotante() {
-  const [casa, setCasa] = useState('Mizu')
+  const [casa, setCasa] = useState('Roble')
   const [fechaInicio, setFechaInicio] = useState('')
   const [fechaSalida, setFechaSalida] = useState('')
   const [isExpanded, setIsExpanded] = useState(false)
@@ -127,9 +127,9 @@ Quedo atento/a. Muchas gracias.
               onChange={(e) => setCasa(e.target.value)}
               className="main-text-dark w-full bg-transparent border-0 border-b border-[#cfc6ae] rounded-none px-0 py-3 text-base font-medium focus:outline-none focus:border-[#01552a]"
             >
-              <option value="Mizu">Mizu</option>
-              <option value="Yuki">Yuki</option>
-              <option value="Kumo">Kumo</option>
+              <option value="Roble">Casa Roble</option>
+              <option value="Yuki">Refugio Ulmo</option>
+              <option value="Kumo">Refugio Canelo</option>
             </select>
           </div>
 

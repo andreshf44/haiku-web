@@ -6,10 +6,10 @@ import Link from 'next/link'
 
 const cabanas = [
   {
-    slug: 'mizu',
-    nombre: 'Mizu',
+    slug: 'roble',
+    nombre: 'Roble',
     descripcion:
-      'Mizu es una cabaña grupal para 4 personas que fluye con naturalidad entre árboles y susurros del bosque. Diseñada para compartir una experiencia cálida y comunitaria, con una tinaja al aire libre bajo el cielo del sur. Ideal para familias o amistades que quieren reconectar, reír, descansar.',
+      'Roble es una cabaña grupal para 4 personas que fluye con naturalidad entre árboles y susurros del bosque. Diseñada para compartir una experiencia cálida y comunitaria, con una tinaja al aire libre bajo el cielo del sur. Ideal para familias o amistades que quieren reconectar, reír, descansar.',
     imagen: '/images/mizu.jpg',
   },
   {
@@ -20,10 +20,10 @@ const cabanas = [
     imagen: '/images/yuki.jpg',
   },
   {
-    slug: 'kumo',
-    nombre: 'Kumo',
+    slug: 'canelo',
+    nombre: 'Canelo',
     descripcion:
-      'Kumo es la cabaña más etérea de Haiku. Su diseño ligero y envolvente ofrece una experiencia suspendida entre el bosque y el cielo. Ideal para desconectar del mundo, reencontrarte con tu cuerpo y respirar profundo. Todo está pensado para el placer tranquilo.',
+      'Canelo es la cabaña más etérea de Haiku. Su diseño ligero y envolvente ofrece una experiencia suspendida entre el bosque y el cielo. Ideal para desconectar del mundo, reencontrarte con tu cuerpo y respirar profundo. Todo está pensado para el placer tranquilo.',
     imagen: '/images/kumo.jpg',
   },
 ]

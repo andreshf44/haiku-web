@@ -58,13 +58,16 @@ export default function HomePage() {
           {/* Texto */}
           <div className="absolute top-20 z-20 p-[25px] text-left max-w-[600px] secondary-text-light no-hover">
             <h2 className="text-[24px] md:text-[36px] leading-tight">
-              “No es solo un lugar, es un respiro que se siente en la piel”.
+              “La luna pasa rápidamente, las ramas aún sostienen las gotas de lluvia.”.
             </h2>
 
-            <p className="text-[18px] italic mt-4">
-              Cabañas de inspiración japonesa, terapias de bienestar y
-              conexión con lo esencial, en medio del bosque.
+            <p className="text-lg italic mt-4">
+              Cada mañana despertarse a la vida abrazados por la magia del Lago Maihue, sus bosques y montañas
             </p>
+            <p className="text-lg italic mt-4">
+              Un nuevo concepto de turismo wellness en la Región de los Ríos, sur de Chile
+            </p>
+            <p className='text-xs text-right mt-4'>Haiku de Matsuo Bashō</p>
 
             {/* Indicadores */}
             <div className="flex gap-2 mt-6">
