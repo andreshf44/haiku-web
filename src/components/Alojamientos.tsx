@@ -1,99 +1,127 @@
-import React from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+
+import {
+  FaHotTub,
+  FaTree,
+  FaUser,
+  FaWater
+} from 'react-icons/fa'
+
+type Include = {
+  icon: React.ElementType
+  label: string
+}
+
+type Experience = {
+  title: string
+  description: string
+  image: string
+  href: string
+  includes: Include[]
+  status?: string
+}
+
+const experiences: Experience[] = [
+  {
+    title: 'Casa Roble',
+    description: 'La experiencia Del Abuelo.',
+    image: '/images/cabanas/roble/portadaNoche.jpg',
+    href: '/cabanas/roble',
+    includes: [
+      { icon: FaUser, label: '6 huéspedes' },
+      { icon: FaHotTub, label: 'Tinaja privada' },
+      { icon: FaTree, label: 'Vista al bosque' },
+    ],
+  },
+  {
+    title: 'Refugio Ulmo',
+    description: 'La experiencia Del Gran Sanador.',
+    image: '/images/cabanas/ulmo/portadaPrueba.jpg',
+    href: '/cabanas/ulmo',
+    includes: [
+      { icon: FaUser, label: '2 huéspedes' },
+      { icon: FaHotTub, label: 'Tinaja privada' },
+      { icon: FaWater, label: 'Vista al lago' },
+    ],
+  },
+  {
+    title: 'Refugio Canelo',
+    description: 'La experiencia Del Lugar De La Verdad.',
+    image: '/images/cabanas/canelo/portadaAmanecer.jpg',
+    href: '/cabanas/canelo',
+    includes: [
+      { icon: FaUser, label: '2 huéspedes' },
+      { icon: FaHotTub, label: 'Tinaja privada' },
+      { icon: FaWater, label: 'Vista al lago' },
+    ],
+  },
+]
 
 export default function Alojamientos() {
   return (
-    <section id="alojamientos" className="bg-[#f5f5ef] w-full py-28 px-4 md:px-0">
-      <div className="max-w-7xl mx-auto grid grid-cols-1  items-center">
-        <div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mb-16 text-center text-[#004421]">Alojamientos</h2>
-          <div className="flex flex-col md:flex-row gap-8 md:justify-between">
-  
-            {/* Roble */}
-            <div className="w-full md:flex-[0_0_30%]">
-              <h3 className="text-base md:text-[18px] font-semibold mb-2 md:mb-[10px] text-[#004421]">
-                Casa Roble
-              </h3>
+    <section id='alojamientos' className="bg-secondary w-full py-20 md:py-36 px-4 md:px-0">
+      <div className="max-w-7xl mx-auto">
+        <h4 className="title-introduction !text-center text-3x1 lg:text-4x1">
+          NUESTRAS CABAÑAS
+        </h4>
+        <h1 className="title text-4xl !text-center">Tres experiencias únicas</h1>
 
-              <div>
-                <img
-                  src="/images/mizu.jpg"
-                  alt="casa roble"
-                  className="w-full h-[35vh] object-cover rounded-xl"
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {experiences.map((experience) => (
+            <Link
+              key={experience.title}
+              href={experience.href}
+              className="
+                group
+                bg-secondary
+                rounded-xl
+                overflow-hidden
+                shadow-sm
+                border
+                border-[#d9d2bf]
+                block
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:shadow-lg
+              "
+            >
+              <div className="relative h-[190px]">
+                <Image
+                  src={experience.image}
+                  alt={experience.title}
+                  fill
+                  className="object-cover"
                 />
-
-                <div className="flex justify-between items-end mt-3 gap-3">
-                  <p className="text-base md:text-lg leading-relaxed text-[#004421]">
-                    Cabaña para 2 personas que busca .... con tinaja y vista al lago
-                  </p>
-
-                  <a
-                    href="/cabanas/roble"
-                    className="text-[#006633] hover:text-[#004421] hover:font-semibold whitespace-nowrap"
-                  >
-                    más
-                  </a>
-                </div>
               </div>
-            </div>
-            
-              {/* CANELO */}
-              <div className="w-full md:flex-[0_0_30%]">
-                <h3 className="text-base md:text-[18px] font-semibold mb-2 md:mb-[10px] text-[#004421]">
-                  Refugio Canelo
+
+              <div className="p-4">
+                <h3 className="main-text-dark font-bold text-xl mt-1 transition-colors duration-300 group-hover:text-icon">
+                  {experience.title}
                 </h3>
 
-                <div>
-                  <img
-                    src="/images/kumo.jpg"
-                    alt="refugio canelo"
-                    className="w-full h-[35vh] object-cover rounded-xl"
-                  />
+                <p className="secondary-text-dark text-sm leading-relaxed mt-1">
+                  {experience.description}
+                </p>
 
-                  <div className="flex justify-between items-end mt-3 gap-3">
-                    <p className="text-base md:text-lg leading-relaxed text-[#004421]">
-                      Cabaña para 2 personas que busca .... con tinaja y vista al lago
-                    </p>
-
-                    <a
-                      href="/cabanas/canelo"
-                      className="text-[#006633] hover:text-[#004421] hover:font-semibold whitespace-nowrap"
+                <div className="mt-4 grid grid-cols-1 gap-2">
+                  {experience.includes.map(({ icon: Icon, label }) => (
+                    <div
+                      key={label}
+                      className="flex items-center gap-2 secondary-text-dark text-sm"
                     >
-                      más
-                    </a>
-                  </div>
+                      <Icon className="text-icon" size={15} />
+                      <span>{label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              {/* YUKI */}
-              <div className="w-full md:flex-[0_0_30%]">
-                <h3 className="text-base md:text-[18px] font-semibold mb-2 md:mb-[10px] text-[#004421]">
-                  Cabaña Yuki
-                </h3>
-
-                <div>
-                  <img
-                    src="/images/yuki.jpg"
-                    alt="cabaña yuki"
-                    className="w-full h-[35vh] object-cover rounded-xl"
-                  />
-
-                  <div className="flex justify-between items-end mt-3 gap-3">
-                    <p className="text-base md:text-lg leading-relaxed text-[#004421]">
-                      Cabaña para 4 personas que entrega .... con tinaja y vista al bosque
-                    </p>
-
-                    <a
-                      href="/cabanas/yuki"
-                      className="text-[#006633] hover:text-[#004421] hover:font-semibold whitespace-nowrap"
-                    >
-                      más
-                    </a>
-                  </div>
-                </div>
-              </div>
-          </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
-  );
+  )
 }
+

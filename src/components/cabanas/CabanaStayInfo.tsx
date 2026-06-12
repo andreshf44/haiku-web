@@ -7,26 +7,34 @@ import {
     FaTree,
     FaMapMarkerAlt,
     FaClock,
-    FaUtensils
+    FaUtensils,
+    FaWater
   } from 'react-icons/fa'
-  
-  const includes = [
-    { icon: FaWifi, label: 'WiFi' },
-    { icon: FaHotTub, label: 'Tinaja privada' },
-    { icon: FaUtensils, label: 'Cocina equipada' },
-    { icon: FaBed, label: 'Toallas y ropa de cama' },
-    { icon: FaTemperatureHigh, label: 'Calefacción' },
-    { icon: FaParking, label: 'Estacionamiento' },
-    { icon: FaTree, label: 'Vista al bosque' },
-  ]
+
+  type CabanaStayInfoProps = {
+    hasLakeView?: boolean
+  }
   
   const locationItems = [
     'A 15 minutos de Pucón',
     'A 10 minutos del lago',
     'Rodeado de bosque nativo',
   ]
+
+  export default function CabanaStayInfo({hasLakeView = false,}: CabanaStayInfoProps) {
+    const includes = [
+      { icon: FaWifi, label: 'WiFi' },
+      { icon: FaHotTub, label: 'Tinaja privada' },
+      { icon: FaUtensils, label: 'Cocina equipada' },
+      { icon: FaBed, label: 'Toallas y ropa de cama' },
+      { icon: FaTemperatureHigh, label: 'Calefacción' },
+      { icon: FaParking, label: 'Estacionamiento' },
+      { icon: FaTree, label: 'Vista al bosque' },
+    ]
+    if (hasLakeView) {
+      includes.push({icon: FaWater,label: 'Vista al lago',})
+    }
   
-  export default function CabanaStayInfo() {
     return (
       <section className="bg-primary px-4 py-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">

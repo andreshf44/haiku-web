@@ -11,9 +11,7 @@ type CabanaDetailsProps = {
   blocks: DetailBlock[]
 }
 
-export default function CabanaDetails({
-  blocks,
-}: CabanaDetailsProps) {
+export default function CabanaDetails({ blocks }: CabanaDetailsProps) {
   return (
     <section className="bg-accent">
       {blocks.map((block) => (
@@ -21,61 +19,40 @@ export default function CabanaDetails({
           key={block.title}
           className={`
             grid
-            ${
-              block.reverse
-                ? 'md:grid-cols-[3fr_2fr]'
-                : 'md:grid-cols-[2fr_3fr]'
-            }
-            min-h-[320px]
+            md:grid-cols-[2fr_3fr]
+            md:h-[260px]
           `}
         >
-          {block.reverse ? (
-            <>
-              {/* Imagen 60% */}
-              <div className="relative min-h-[320px]">
-                <Image
-                  src={block.image}
-                  alt={block.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+          {/* Texto: en mobile siempre va primero */}
+          <div
+            className={`
+              flex flex-col justify-center px-8 md:px-16 py-12
+              ${block.reverse ? 'md:order-2' : 'md:order-1'}
+            `}
+          >
+            <h2 className="main-text-dark text-3xl md:text-4xl font-semibold mb-4">
+              {block.title}
+            </h2>
 
-              {/* Texto 40% */}
-              <div className="flex flex-col justify-center px-8 md:px-16 py-12">
-                <h2 className="main-text-dark text-3xl md:text-4xl font-semibold mb-4">
-                  {block.title}
-                </h2>
+            <p className="secondary-text-dark text-sm leading-relaxed max-w-[500px]">
+              {block.description}
+            </p>
+          </div>
 
-                <p className="secondary-text-dark text-lg leading-relaxed max-w-[500px]">
-                  {block.description}
-                </p>
-              </div>
-            </>
-          ) : (
-            <>
-              {/* Texto 40% */}
-              <div className="flex flex-col justify-center px-8 md:px-16 py-12">
-                <h2 className="main-text-dark text-3xl md:text-4xl font-semibold mb-4">
-                  {block.title}
-                </h2>
-
-                <p className="secondary-text-dark text-lg leading-relaxed max-w-[500px]">
-                  {block.description}
-                </p>
-              </div>
-
-              {/* Imagen 60% */}
-              <div className="relative min-h-[320px]">
-                <Image
-                  src={block.image}
-                  alt={block.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </>
-          )}
+          {/* Imagen: en mobile siempre va después */}
+          <div
+            className={`
+              relative h-[240px] md:h-[260px]
+              ${block.reverse ? 'md:order-1' : 'md:order-2'}
+            `}
+          >
+            <Image
+              src={block.image}
+              alt={block.title}
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       ))}
     </section>

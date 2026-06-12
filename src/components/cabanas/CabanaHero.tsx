@@ -33,7 +33,7 @@ export default function CabanaHero({
       />
 
       <div className="content-hero absolute top-20 z-20 p-[25px] max-w-[600px] secondary-text-light">
-        <div>
+        <div className='text-center md:text-left'>
           <h2 className="text-[24px] md:text-[55px] leading-tight">
             {title}
           </h2>
@@ -41,16 +41,17 @@ export default function CabanaHero({
           <p className="text-lg mt-1">{subtitle}</p>
         </div>
 
-        <div className="flex justify-evenly items-baseline pt-2 font-bold gap-6 content-icons">
+        <div className='content-hero !ml-0'>
+          <div className="flex justify-evenly items-baseline pt-2 font-bold gap-6 content-icons">
           {features.map((feature) => (
             <div key={feature.label} className="grid place-items-center">
               <img src={feature.icon} alt={feature.alt} />
               <span className="text-icon">{feature.label}</span>
             </div>
           ))}
-        </div>
+          </div>
 
-        <div>
+          <div>
           <Link href={reserveHref} className="bg-button-gold">
             Reservar esta cabaña
           </Link>
@@ -58,6 +59,7 @@ export default function CabanaHero({
           <div className="flex items-center justify-center gap-2 mt-6 text-sm font-medium secondary-text-light">
             <FaWhatsapp size={16} />
             <span>Respuesta vía WhatsApp</span>
+          </div>
           </div>
         </div>
       </div>

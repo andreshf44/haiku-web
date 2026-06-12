@@ -1,86 +1,109 @@
-import { FiMap, FiHeart, FiUsers, FiGlobe } from 'react-icons/fi'
-import { FaBicycle } from 'react-icons/fa'
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 
-const secciones = [
-  { title: 'Trekking', icon: FiMap },
-  { title: 'Bicicleta', icon: FaBicycle },
-  { title: 'Spa', icon: FiHeart },
-  { title: 'Salón de evento', icon: FiUsers },
-  { title: 'Experiencias inmersivas', icon: FiGlobe },
-]
-
-const detalles = [
+const experiencias = [
   {
-    title: 'Trekking',
+    title: 'Espacio Arrayán',
+    subtitle: 'Encuentros y formación',
+    image: '/images/experiencias/salon.jpg',
     description:
-      'Explora senderos rodeados de bosque nativo y ríos cristalinos, con rutas guiadas y de autoexploración para todos los niveles.',
-    image: '/images/trekking.jpg',
-  },
-  {
-    title: 'Bicicleta',
-    description:
-      'Recorre caminos interiores y exteriores del complejo, con rutas de montaña y senderos para todos los niveles.',
-    image: '/images/bicicleta.jpg',
+      'Salón multiuso para clases, seminarios, retiros, formaciones y eventos privados. Un espacio rodeado de naturaleza, con kitchen equipada, camarines, baño, WiFi y mirador con vista al lago.',
   },
   {
     title: 'Spa',
+    subtitle: 'Calor, vapor y descanso',
+    image: '/images/experiencias/spa.jpg',
     description:
-      'Relájate con masajes, baños calientes y experiencias de bienestar en un entorno natural único.',
-    image: '/images/spa.jpg',
+      'Un espacio de bienestar con sauna a leña y baño turco con hierbas medicinales, pensado para relajar el cuerpo, disminuir el estrés y recuperar una profunda sensación de calma.',
   },
   {
-    title: 'Salón de evento',
+    title: 'Trekking',
+    subtitle: 'Bosque y montaña',
+    image: '/images/experiencias/trekking.jpg',
     description:
-      'Espacios cómodos y equipados para retiros, matrimonios, talleres y celebraciones con vista privilegiada.',
-    image: '/images/salon.jpg',
+      'Explora senderos rodeados de bosque nativo y paisajes del sur, con rutas pensadas para caminar con calma, respirar profundo y reconectar con la naturaleza.',
   },
   {
-    title: 'Experiencias inmersivas',
+    title: 'Bicicleta',
+    subtitle: 'Recorridos naturales',
+    image: '/images/experiencias/bicicleta.jpg',
     description:
-      'Actividades sensoriales, observación de estrellas y caminatas nocturnas para conectar con la naturaleza.',
-    image: '/images/inmersivas.jpg',
+      'Recorre caminos interiores y exteriores del complejo, disfrutando el paisaje a tu propio ritmo entre bosque, senderos y aire puro.',
+  },
+  {
+    title: 'Cursos y formaciones',
+    subtitle: 'Próximamente',
+    image: '/images/experiencias/formaciones.jpg',
+    description:
+      'Muy pronto abriremos espacios para cursos, talleres y experiencias formativas en conexión con la naturaleza.',
   },
 ]
 
-
 export default function SeccionesInfo() {
-    return (
-      <section id='experiencias' className="py-22 container mx-auto px-4">
-        <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-green-950 mb-12 text-center text-[#004421]'>Experiencias Haiku</h2>
-        <div className="flex flex-wrap justify-center gap-6 md:grid md:grid-cols-5 md:gap-8 text-center">
-          {secciones.map(({ title, icon: Icon }) => (
-            <div key={title} className="flex flex-col items-center w-[28%] md:w-auto">
-              <Icon className="text-5xl text-[#b98f5a] mb-3 cursor-pointer" />
-              <h3 className="text-lg font-semibold text-[#b98f5a] cursor-pointer">{title}</h3>
-            </div>
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const activeExperience = experiencias[activeIndex]
+
+  return (
+    <section id="experiencias" className="bg-dark w-full py-20 md:py-36 px-4 md:px-0">
+      <div className="max-w-7xl mx-auto">
+        <h4 className="title-introduction !text-center text-3x1 lg:text-4x1">
+          VIVE LA EXPERIENCIA HAIKU
+        </h4>
+        <h1 className="title-light text-4xl !text-center">Actividades para cuerpo y alma</h1>
+
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-12">
+          {experiencias.map((experiencia, index) => (
+            <button
+              key={experiencia.title}
+              onClick={() => setActiveIndex(index)}
+              className={`px-5 py-2 rounded-full border transition-all duration-300 text-sm md:text-base ${
+                activeIndex === index
+                  ? 'bg-[#cda264] border-[#cda264] text-white'
+                  : 'border-[#cda264] text-[#efe9d7] hover:bg-[#cda264] hover:text-white'
+              }`}
+            >
+              {experiencia.title}
+            </button>
           ))}
         </div>
 
-        <div className="mt-18 space-y-20">
-        {detalles.map(({ title, description, image }, index) => (
-          <div
-            key={title}
-            className={`flex flex-col md:flex-row items-center gap-8 ${
-              index % 2 === 1 ? 'md:flex-row-reverse' : ''
-            }`}
-          >
-            <div className="md:w-1/2 w-full">
-              <Image
-                src={image}
-                alt={title}
-                width={600}
-                height={400}
-                className="rounded-2xl object-cover w-full h-auto shadow-lg"
-              />
-            </div>
-            <div className="md:w-1/2 w-full px-4">
-              <h4 className="text-3xl font-bold text-[#01552a] mb-4">{title}</h4>
-              <p className="text-lg text-[#333] leading-relaxed">{description}</p>
-            </div>
+        {/* Contenido activo */}
+        <div className="grid md:grid-cols-[3fr_2fr] bg-[#f5f5ef] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative h-[320px] md:h-[460px]">
+            <Image
+              src={activeExperience.image}
+              alt={activeExperience.title}
+              fill
+              className="object-cover"
+            />
           </div>
-        ))}
+
+          <div className="flex flex-col justify-center p-8 md:p-12">
+            <p className="text-icon uppercase tracking-[0.22em] text-xs font-semibold mb-3">
+              {activeExperience.subtitle}
+            </p>
+
+            <h3 className="title-font main-text-dark text-4xl font-medium mb-5">
+              {activeExperience.title}
+            </h3>
+
+            <p className="secondary-text-dark text-sm leading-relaxed mb-8">
+              {activeExperience.description}
+            </p>
+
+            <a
+              href="/#reservar"
+              className="bg-button-gold inline-block w-fit"
+            >
+              Reservar
+            </a>
+          </div>
         </div>
-      </section>
-    )
+      </div>
+    </section>
+  )
 }

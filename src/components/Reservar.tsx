@@ -1,9 +1,10 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
+import Image from 'next/image'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function Reservar() {
-
   const [form, setForm] = useState({
     nombre: '',
     telefono: '',
@@ -17,7 +18,7 @@ export default function Reservar() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const cabanaUrl = params.get('cabana')
-  
+
     if (cabanaUrl) {
       setForm((prev) => ({
         ...prev,
@@ -27,9 +28,9 @@ export default function Reservar() {
   }, [])
 
   const fechaEntradaRef = useRef<HTMLInputElement>(null)
-  const fechaSalidaRef = useRef<HTMLInputElement>(null) 
+  const fechaSalidaRef = useRef<HTMLInputElement>(null)
 
-  const cabanas = ['Roble', 'Canelo', 'Yuki']
+  const cabanas = ['Roble', 'Canelo', 'Ulmo']
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -45,24 +46,23 @@ export default function Reservar() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    // REEMPLAZA ESTE NÚMERO POR EL TUYO
     const numeroWhatsapp = '56944177821'
 
     const mensajeWhatsapp = `Hola Haiku 🌿, quiero solicitar una reserva:
 
-    👤 Nombre: ${form.nombre}
-    📞 Teléfono: ${form.telefono}
-    📧 Email: ${form.email}
+👤 Nombre: ${form.nombre}
+📞 Teléfono: ${form.telefono}
+📧 Email: ${form.email}
 
-    🏡 Cabaña: ${form.cabana}
+🏡 Cabaña: ${form.cabana}
 
-    📅 Fecha de entrada: ${form.fechaEntrada}
-    📅 Fecha de salida: ${form.fechaSalida}
+📅 Fecha de entrada: ${form.fechaEntrada}
+📅 Fecha de salida: ${form.fechaSalida}
 
-    💬 Consulta o solicitud especial:
-    ${form.mensaje || 'Sin comentarios adicionales'}
+💬 Consulta o solicitud especial:
+${form.mensaje || 'Sin comentarios adicionales'}
 
-    Quedo atento(a) a la disponibilidad. Muchas gracias.`
+Quedo atento(a) a la disponibilidad. Muchas gracias.`
 
     const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
       mensajeWhatsapp
@@ -70,7 +70,6 @@ export default function Reservar() {
 
     window.open(url, '_blank')
 
-    // limpiar formulario
     setForm({
       nombre: '',
       telefono: '',
@@ -83,22 +82,26 @@ export default function Reservar() {
   }
 
   return (
-    <section id="reservar" className="bg-[#004421] py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 max-w-xl">
-        <h2 className="text-3xl font-bold text-[#b98f5a] mb-8 text-center">
-          Reserva tu cabaña
-        </h2>
+    <section id="reservar" className="bg-primary w-full py-20 md:py-36 px-4 md:px-0">
+      <div className="grid md:grid-cols-[2fr_3fr] gap-8 max-w-7xl mx-auto">
 
+        {/* Intro reserva */}
+        <div className="items-center">
+          <h4 className="title-introduction text-3x1 lg:text-4x1">
+            RESERVA TU ESTADÍA
+          </h4>
+          <h1 className="title text-4xl">Tu próximo respiro te está esperando</h1>
+          <p className="secondary-text-dark text-base md:text-lg leading-relaxed mb-6">
+            Consulta disponibilidad y asegura tu cabaña. Te responderemos por WhatsApp para confirmar fechas, detalles y acompañarte en tu reserva.
+          </p>
+        </div>
+
+        {/* Formulario */}
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-6 bg-[#f9f7f2] p-8 rounded-xl shadow-md"
+          className="bg-[#f9f7f2] max-w-4xl mx-auto p-6 md:p-8 rounded-2xl shadow-md grid gap-5"
         >
-          {/* Nombre */}
-          <div>
-            <label className="block md:hidden text-[#004421] font-medium mb-1">
-              Nombre completo
-            </label>
-
+          <div className="grid md:grid-cols-3 gap-4">
             <input
               type="text"
               name="nombre"
@@ -108,13 +111,6 @@ export default function Reservar() {
               required
               className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-[#b98f5a]"
             />
-          </div>
-
-          {/* Teléfono */}
-          <div>
-            <label className="block md:hidden text-[#004421] font-medium mb-1">
-              Teléfono
-            </label>
 
             <input
               type="tel"
@@ -125,13 +121,6 @@ export default function Reservar() {
               required
               className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-[#b98f5a]"
             />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label className="block md:hidden text-[#004421] font-medium mb-1">
-              Correo electrónico
-            </label>
 
             <input
               type="email"
@@ -144,10 +133,9 @@ export default function Reservar() {
             />
           </div>
 
-          {/* Fechas */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-[#004421] font-medium mb-1 text-sm">
+              <label className="block main-text-dark font-medium mb-1 text-sm">
                 Fecha de entrada
               </label>
 
@@ -168,7 +156,7 @@ export default function Reservar() {
             </div>
 
             <div>
-              <label className="block text-[#004421] font-medium mb-1 text-sm">
+              <label className="block main-text-dark font-medium mb-1 text-sm">
                 Fecha de salida
               </label>
 
@@ -187,34 +175,32 @@ export default function Reservar() {
                 />
               </div>
             </div>
+
+            <div>
+              <label className="block main-text-dark font-medium mb-1 text-sm">
+                Cabaña
+              </label>
+
+              <select
+                name="cabana"
+                value={form.cabana}
+                onChange={handleChange}
+                required
+                className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-[#b98f5a]"
+              >
+                <option value="">Selecciona una cabaña</option>
+
+                {cabanas.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          {/* Cabaña */}
           <div>
-            <label className="block md:hidden text-[#004421] font-medium mb-1">
-              Cabaña
-            </label>
-
-            <select
-              name="cabana"
-              value={form.cabana}
-              onChange={handleChange}
-              required
-              className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-[#b98f5a]"
-            >
-              <option value="">Selecciona una cabaña</option>
-
-              {cabanas.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* Pregunta / solicitud especial */}
-          <div>
-            <label className="block text-[#004421] font-medium mb-1 text-sm">
+            <label className="block main-text-dark font-medium mb-1 text-sm">
               ¿Tienes alguna pregunta o solicitud especial?
             </label>
 
@@ -228,13 +214,16 @@ export default function Reservar() {
             />
           </div>
 
-          {/* Botón */}
           <button
             type="submit"
-            className="bg-[#b98f5a] text-white py-3 rounded font-semibold hover:bg-[#a97e39] transition"
+            className="bg-button-gold w-full md:w-fit md:px-14 justify-self-center font-semibold"
           >
             Solicitar Reserva
           </button>
+          <div className="flex justify-center items-center gap-2 secondary-text-dark text-sm font-medium">
+            <FaWhatsapp size={16} />
+            <span>Respuesta vía WhatsApp</span>
+          </div>
         </form>
       </div>
     </section>

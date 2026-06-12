@@ -19,58 +19,54 @@
     --color-text-secondary-dark: #4a5a52; /*Parrafos*/
     --color-text-secondary-light: #efe9d7; /*Parrafos fondo oscuro*/
     --color-text-accent: #b98f5a; /*Concepto de iconos*/
+    --color-text-icon-hero: #a3742a;
   
-  }
+}
+
+
 
 /*Color textos*/
 
 .main-text-light{
     color: var(--color-text-primary-light);
 }
-
 .secondary-text-light{
     color: var(--color-text-secondary-light);
     transition: color 0.3s ease;
 }
-
 .hover-secondary-light:hover{
     color: var(--color-text-accent)
 }
-
-
 .text-icon{
-    color: var(--color-text-accent);
+    color: var(--color-text-icon-hero);
 }
-
 .main-text-dark{
     color: var(--color-text-primary-dark);
 }
-
 .secondary-text-dark{
     color: var(--color-text-secondary-dark);
 }
-
 .no-hover:hover{
     color: var(--color-text-secondary-light);
 }
 
+
+
+
 /*background*/
+
 .bg-primary{
     background: var(--haiku-bg-primary);
 }
-
 .bg-secondary{
     background: var(--haiku-bg-secondary);
 }
-
 .bg-accent{
     background: var(--haiku-bg-accent);
 }
-
 .bg-hamburger{
-    background: var( --color-text-primary-dark);
+    background: var( --color-text-accent);
 }
-
 .bg-button-gold {
     background: var(--haiku-gold);
     transition: background 0.3s ease;
@@ -78,21 +74,34 @@
     color: var(--color-text-secondary-light);
     padding: 12px 45px;
 }
-
 .bg-button-gold:hover {
     background: var(--haiku-gold-hover);
 }
+.bg-dark{
+    background: var(--haiku-bg-dark);
+}
+
+
+
+
+
 
 /*Quienes Somos*/
+
 .title{
     color: var(--color-text-primary-dark);
     margin-bottom: 24px;
     text-align: left;
     font-weight: 600;
 }
+.title-light{
+    color: var(--color-text-secondary-light);
+    margin-bottom: 24px;
+    text-align: left;
+    font-weight: 600;
+}
 .title-introduction{
     color: var( --color-text-accent);
-    margin-bottom: 24px;
     text-align: left;
     font-weight: 600;
 }
@@ -105,10 +114,27 @@
     gap: 25px;
     margin-left: 35px;
 }
-.content-icons{
+.content-icons {
     font-size: 12px;
     margin-bottom: 12px;
-    img{
-        width: 40px;
+}
+.content-icons img {
+    width: 40px;
+}
+
+@media (max-width: 790px) and (orientation:portrait){
+    .content-hero{
+        margin-left: 0px;
+        align-items: center;
+        width: 100%;
+    }
+    .content-icons {
+        font-size: 10px;
+    }
+    .title{
+        text-align: center;
+    }
+    .title-introduction{
+        text-align: center;
     }
 }

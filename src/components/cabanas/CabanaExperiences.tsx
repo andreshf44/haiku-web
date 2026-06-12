@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 type Experience = {
   title: string
@@ -11,32 +12,32 @@ const experiences: Experience[] = [
   {
     title: 'Espacio Arrayán',
     description:
-      'Salón multiuso para clases, seminarios, retiros, formaciones y eventos privados. Capacidad para 12-15 personas, accesibilidad universal, kitchen equipada, camarines, baño, WiFi y mirador con vista al lago.',
-    image: '/images/experiencias/arrayan.jpg',
+      'Un espacio para encuentros, aprendizaje y conexión.',
+    image: '/images/experiencias/salon.jpg',
   },
   {
     title: 'Spa',
     description:
-      'Sauna a leña y baño turco con hierbas medicinales. Espacios pensados para relajar el cuerpo, reducir el estrés, favorecer el descanso y reconectar con una profunda sensación de bienestar.',
+      'Bienestar profundo entre calor, vapor y naturaleza.',
     image: '/images/experiencias/spa.jpg',
   },
   {
     title: 'Trekking',
     description:
-      'Explora senderos rodeados de bosque nativo y ríos cristalinos, con rutas guiadas y de autoexploración para todos los niveles.',
+      'Senderos que invitan a descubrir el bosque nativo.',
     image: '/images/experiencias/trekking.jpg',
   },
   {
     title: 'Bicicleta',
     description:
-      'Recorre caminos interiores y exteriores del complejo, con rutas de montaña y senderos para todos los niveles.',
+      'Recorre paisajes únicos a tu propio ritmo.',
     image: '/images/experiencias/bicicleta.jpg',
   },
   {
     title: 'Cursos y formaciones',
     description:
-      'Muy pronto abriremos espacios para cursos, talleres y experiencias formativas en conexión con la naturaleza.',
-    image: '/images/experiencias/formaciones.jpg',
+      'Próximamente nuevas experiencias de aprendizaje.',
+    image: '/images/experiencias/inmersivas.jpg',
     status: 'Próximamente',
   },
 ]
@@ -51,9 +52,23 @@ export default function CabanaExperiences() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {experiences.map((experience) => (
-            <article
-              key={experience.title}
-              className="bg-secondary rounded-xl overflow-hidden shadow-sm border border-[#d9d2bf]"
+            <Link
+            key={experience.title}
+            href="/#experiencias"
+            className="
+              group
+              bg-secondary
+              rounded-xl
+              overflow-hidden
+              shadow-sm
+              border
+              border-[#d9d2bf]
+              block
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-lg
+            "
             >
               <div className="relative h-[150px]">
                 <Image
@@ -71,7 +86,7 @@ export default function CabanaExperiences() {
                   </span>
                 )}
 
-                <h3 className="main-text-dark font-semibold text-lg mt-1">
+                <h3 className="main-text-dark font-semibold text-lg mt-1 transition-colors duration-300 group-hover:text-icon">
                   {experience.title}
                 </h3>
 
@@ -79,7 +94,7 @@ export default function CabanaExperiences() {
                   {experience.description}
                 </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
