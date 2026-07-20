@@ -34,11 +34,12 @@ const robleGallery = [
   '/images/cabanas/roble/roble-3.jpg',
   '/images/cabanas/roble/roble-4.jpg',
   '/images/cabanas/roble/roble-5.jpg',
-  '/images/cabanas/roble/roble-6.png',
-  '/images/cabanas/roble/roble-7.png',
-  '/images/cabanas/roble/roble-8.png',
-  '/images/cabanas/roble/roble-9.png',
+  '/images/cabanas/roble/roble-6.jpg',
+  '/images/cabanas/roble/roble-7.jpg',
+  '/images/cabanas/roble/roble-8.jpg',
+  '/images/cabanas/roble/roble-9.jpg',
   '/images/cabanas/roble/roble-10.jpg',
+  '/images/cabanas/roble/roble-12.jpg',
 ]
 
 const robleDetails = [
@@ -52,20 +53,20 @@ const robleDetails = [
     title: 'La cabaña',
     description:
       'Inspirada en la fuerza y presencia del roble, esta cabaña invita a reunirse y habitar el bosque con tranquilidad. Diseñada para recibir hasta 6 personas, combina espacios cómodos para compartir con rincones donde descansar y contemplar la naturaleza que la rodea.',
-    image: '/images/cabanas/roble/roble-7.png',
+    image: '/images/cabanas/roble/roble-1.jpg',
     reverse: true,
   },
   {
     title: 'La experiencia',
     description:
       'Roble dispone de 3 habitaciones (1 matrimonial y 2 dobles), cocina completamente equipada, WiFi, terraza y accesibilidad universal en el primer piso. La experiencia se completa con una tinaja privada para 6 personas incluida en la reserva, perfecta para disfrutar el silencio, las estrellas y la atmósfera única de los bosques del sur de Chile.',
-    image: '/images/cabanas/roble/roble-8.png',
+    image: '/images/cabanas/roble/roble-11.jpg',
   },
   {
     title: 'El entorno',
     description:
       'Más allá de la cabaña, el bosque se convierte en parte de la experiencia. La presencia de árboles nativos, los sonidos del viento entre las ramas y la cercanía del lago invitan a habitar el paisaje con atención y calma. Aquí, cada amanecer, cada sendero y cada cambio de luz recuerdan la profunda conexión entre naturaleza, descanso y contemplación.',
-    image: '/images/cabanas/roble/roble-9.png',
+    image: '/images/cabanas/roble/roble-12.jpg',
     reverse: true,
   },
 ]

@@ -37,7 +37,7 @@ const experiences: Experience[] = [
   {
     title: 'Refugio Ulmo',
     description: 'La experiencia Del Gran Sanador.',
-    image: '/images/cabanas/ulmo/portadaPrueba.jpg',
+    image: '/images/cabanas/ulmo/portadaUlmo.jpg',
     href: '/cabanas/ulmo',
     includes: [
       { icon: FaUser, label: '2 huéspedes' },
@@ -48,7 +48,7 @@ const experiences: Experience[] = [
   {
     title: 'Refugio Canelo',
     description: 'La experiencia Del Lugar De La Verdad.',
-    image: '/images/cabanas/canelo/portadaAmanecer.jpg',
+    image: '/images/cabanas/canelo/portadaCanelo.jpg',
     href: '/cabanas/canelo',
     includes: [
       { icon: FaUser, label: '2 huéspedes' },

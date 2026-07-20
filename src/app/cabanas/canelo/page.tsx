@@ -34,11 +34,9 @@ const robleGallery = [
   '/images/cabanas/canelo/canelo-3.jpg',
   '/images/cabanas/canelo/canelo-4.jpg',
   '/images/cabanas/canelo/canelo-5.jpg',
-  '/images/cabanas/canelo/canelo-6.png',
-  '/images/cabanas/canelo/canelo-7.png',
-  '/images/cabanas/canelo/canelo-8.png',
-  '/images/cabanas/canelo/canelo-9.png',
-  '/images/cabanas/canelo/canelo-10.jpg',
+  '/images/cabanas/canelo/canelo-6.jpg',
+  '/images/cabanas/canelo/canelo-7.jpg',
+  '/images/cabanas/canelo/canelo-8.jpg',
 ]
 
 const robleDetails = [
@@ -52,20 +50,20 @@ const robleDetails = [
     title: 'La cabaña',
     description:
       'Inspirada en la paz y el espíritu sanador del canelo, esta cabaña invita a detener el ritmo cotidiano y reconectar con lo esencial. Diseñada para dos personas, combina comodidad, privacidad y una vista privilegiada al lago, creando un refugio sereno donde descansar, compartir y disfrutar la naturaleza en toda su profundidad.',
-    image: '/images/cabanas/canelo/canelo-7.png',
+    image: '/images/cabanas/canelo/canelo-1.jpg',
     reverse: true,
   },
   {
     title: 'La experiencia',
     description:
       'Canelo dispone de una habitación con cama matrimonial, cocina completamente equipada, WiFi y una amplia terraza orientada hacia el lago. La experiencia se completa con una tinaja privada incluida en la reserva, ideal para disfrutar los atardeceres, el silencio del entorno y la atmósfera única de los bosques del sur de Chile.',
-    image: '/images/cabanas/canelo/canelo-8.png',
+    image: '/images/cabanas/canelo/canelo-6.jpg',
   },
   {
     title: 'El entorno',
     description:
       'Más allá de la cabaña, el bosque se convierte en parte de la experiencia. La presencia de árboles nativos, los sonidos del viento entre las ramas y la cercanía del lago invitan a habitar el paisaje con atención y calma. Aquí, cada amanecer, cada sendero y cada cambio de luz recuerdan la profunda conexión entre naturaleza, descanso y contemplación.',
-    image: '/images/cabanas/canelo/canelo-9.png',
+    image: '/images/cabanas/canelo/canelo-4.jpg',
     reverse: true,
   },
 ]
@@ -76,7 +74,7 @@ export default function CaneloPage() {
       <CabanaHero
         title="EL LUGAR DE LA VERDAD"
         subtitle="Refugio Canelo"
-        image="/images/cabanas/canelo/portadaAmanecer.jpg"
+        image="/images/cabanas/canelo/portadaCanelo.jpg"
         reserveHref="/?cabana=Canelo#reservar"
         features={robleFeatures}
       />

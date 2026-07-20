@@ -34,11 +34,9 @@ const robleGallery = [
   '/images/cabanas/ulmo/ulmo-3.jpg',
   '/images/cabanas/ulmo/ulmo-4.jpg',
   '/images/cabanas/ulmo/ulmo-5.jpg',
-  '/images/cabanas/ulmo/ulmo-6.png',
-  '/images/cabanas/ulmo/ulmo-7.png',
-  '/images/cabanas/ulmo/ulmo-8.png',
-  '/images/cabanas/ulmo/ulmo-9.png',
-  '/images/cabanas/ulmo/ulmo-10.jpg',
+  '/images/cabanas/ulmo/ulmo-6.jpg',
+  '/images/cabanas/ulmo/ulmo-7.jpg',
+  '/images/cabanas/ulmo/ulmo-8.jpg',
 ]
 
 const robleDetails = [
@@ -52,20 +50,20 @@ const robleDetails = [
     title: 'La cabaña',
     description:
     'Inspirada en la serenidad y elegancia del ulmo, esta cabaña ofrece un refugio íntimo para quienes buscan desconectar y contemplar la naturaleza en calma. Diseñada para dos personas, combina comodidad, privacidad y una vista privilegiada al lago, creando el escenario perfecto para descansar, compartir y reconectar con lo esencial.',
-    image: '/images/cabanas/ulmo/ulmo-7.png',
+    image: '/images/cabanas/ulmo/ulmo-4.jpg',
     reverse: true,
   },
   {
     title: 'La experiencia',
     description:
     'Ulmo dispone de una habitación con cama matrimonial, cocina completamente equipada, WiFi y una amplia terraza orientada hacia el lago. La experiencia se completa con una tinaja privada incluida en la reserva, ideal para disfrutar los atardeceres, el silencio del entorno y la atmósfera única de los bosques del sur de Chile.',
-    image: '/images/cabanas/ulmo/ulmo-8.png',
+    image: '/images/cabanas/ulmo/ulmo-11.jpg',
   },
   {
     title: 'El entorno',
     description:
       'Más allá de la cabaña, el bosque se convierte en parte de la experiencia. La presencia de árboles nativos, los sonidos del viento entre las ramas y la cercanía del lago invitan a habitar el paisaje con atención y calma. Aquí, cada amanecer, cada sendero y cada cambio de luz recuerdan la profunda conexión entre naturaleza, descanso y contemplación.',
-    image: '/images/cabanas/ulmo/ulmo-9.png',
+    image: '/images/cabanas/ulmo/ulmo-9.jpg',
     reverse: true,
   },
 ]
@@ -76,7 +74,7 @@ export default function UlmoPage() {
       <CabanaHero
         title="EL GRAN SANADOR"
         subtitle="Refugio Ulmo"
-        image="/images/cabanas/ulmo/portadaPrueba.jpg"
+        image="/images/cabanas/ulmo/portadaUlmo.jpg"
         reserveHref="/?cabana=Ulmo#reservar"
         features={robleFeatures}
       />
