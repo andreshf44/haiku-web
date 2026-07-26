@@ -192,7 +192,7 @@ Quedo atento/a. Muchas gracias.
           ${
             hasScrolled
             ? 'ml-auto block bg-[#01552a] text-white px-5 py-3 rounded-full shadow-xl hover:bg-[#004421] transition text-sm md:text-base'
-            : 'w-[290px] ml-auto block text-white px-5 py-3 border-2 border-[#01552a] rounded w-[70%] bg-transparent hover:bg-[#01552a] hover:text-white transition text-sm md:text-base'
+            : 'hidden w-[290px] ml-auto block text-white px-5 py-3 border-2 border-[#01552a] rounded w-[70%] bg-transparent hover:bg-[#01552a] hover:text-white transition text-sm md:text-base'
           }
           ${
             isExpanded
