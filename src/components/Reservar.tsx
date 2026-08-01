@@ -46,7 +46,7 @@ export default function Reservar() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const numeroWhatsapp = '56944177821'
+    const numeroWhatsapp = '56 9 8599 1949.'
 
     const mensajeWhatsapp = `Hola Haiku 🌿, quiero solicitar una reserva:
 

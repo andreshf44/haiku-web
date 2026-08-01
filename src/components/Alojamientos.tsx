@@ -1,5 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { useLanguage } from '@/context/LanguageContext'
 
 import {
   FaHotTub,
@@ -10,12 +14,18 @@ import {
 
 type Include = {
   icon: React.ElementType
-  label: string
+  label: {
+    es: string
+    en: string
+  }
 }
 
 type Experience = {
   title: string
-  description: string
+  description: {
+    es: string
+    en: string
+  }
   image: string
   href: string
   includes: Include[]
@@ -25,53 +35,138 @@ type Experience = {
 const experiences: Experience[] = [
   {
     title: 'Casa Roble',
-    description: 'La experiencia Del Abuelo.',
-    image: '/images/cabanas/roble/portadaNoche.jpg',
+    description: {
+      es: 'La experiencia Del Abuelo.',
+      en: 'The Grandfather experience.',
+    },
+    image: '/images/cabanas/roble/portada-roble.jpg',
     href: '/cabanas/roble',
     includes: [
-      { icon: FaUser, label: '6 huéspedes' },
-      { icon: FaHotTub, label: 'Tinaja privada' },
-      { icon: FaTree, label: 'Vista al bosque' },
+      {
+        icon: FaUser,
+        label: {
+          es: '6 huéspedes',
+          en: '6 guests',
+        },
+      },
+      {
+        icon: FaHotTub,
+        label: {
+          es: 'Tinaja privada',
+          en: 'Private hot tub',
+        },
+      },
+      {
+        icon: FaTree,
+        label: {
+          es: 'Vista al bosque',
+          en: 'Forest view',
+        },
+      },
     ],
   },
   {
     title: 'Refugio Ulmo',
-    description: 'La experiencia Del Gran Sanador.',
-    image: '/images/cabanas/ulmo/portadaUlmo.jpg',
+    description: {
+      es: 'La experiencia Del Gran Sanador.',
+      en: 'The Great Healer experience.',
+    },
+    image: '/images/cabanas/ulmo/portada-home.jpg',
     href: '/cabanas/ulmo',
     includes: [
-      { icon: FaUser, label: '2 huéspedes' },
-      { icon: FaHotTub, label: 'Tinaja privada' },
-      { icon: FaWater, label: 'Vista al lago' },
+      {
+        icon: FaUser,
+        label: {
+          es: '2 huéspedes',
+          en: '2 guests',
+        },
+      },
+      {
+        icon: FaHotTub,
+        label: {
+          es: 'Tinaja privada',
+          en: 'Private hot tub',
+        },
+      },
+      {
+        icon: FaWater,
+        label: {
+          es: 'Vista al lago',
+          en: 'Lake view',
+        },
+      },
     ],
   },
   {
     title: 'Refugio Canelo',
-    description: 'La experiencia Del Lugar De La Verdad.',
+    description: {
+      es: 'La experiencia Del Lugar De La Verdad.',
+      en: 'The Place of Truth experience.',
+    },
     image: '/images/cabanas/canelo/portadaCanelo.jpg',
     href: '/cabanas/canelo',
     includes: [
-      { icon: FaUser, label: '2 huéspedes' },
-      { icon: FaHotTub, label: 'Tinaja privada' },
-      { icon: FaWater, label: 'Vista al lago' },
+      {
+        icon: FaUser,
+        label: {
+          es: '2 huéspedes',
+          en: '2 guests',
+        },
+      },
+      {
+        icon: FaHotTub,
+        label: {
+          es: 'Tinaja privada',
+          en: 'Private hot tub',
+        },
+      },
+      {
+        icon: FaWater,
+        label: {
+          es: 'Vista al lago',
+          en: 'Lake view',
+        },
+      },
     ],
   },
 ]
 
+const translations = {
+  es: {
+    introduction: 'NUESTRAS CABAÑAS',
+    title: 'Tres experiencias únicas',
+  },
+  en: {
+    introduction: 'OUR CABINS',
+    title: 'Three unique experiences',
+  },
+}
+
 export default function Alojamientos() {
+  const { lang } = useLanguage()
+  const t = translations[lang]
+
   return (
     <section id='alojamientos' className="bg-secondary w-full py-20 md:py-36 px-4 md:px-0">
       <div className="max-w-7xl mx-auto">
         <h4 className="title-introduction !text-center text-3x1 lg:text-4x1">
-          NUESTRAS CABAÑAS
+          {t.introduction}
         </h4>
-        <h1 className="title text-4xl !text-center">Tres experiencias únicas</h1>
+
+        <h2 className="title text-4xl !text-center">
+          {t.title}
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {experiences.map((experience) => (
             <Link
               key={experience.title}
               href={experience.href}
+              aria-label={
+                lang === 'es'
+                  ? `Ver alojamiento ${experience.title}`
+                  : `View ${experience.title} accommodation`
+              }
               className="
                 group
                 bg-secondary
@@ -87,12 +182,16 @@ export default function Alojamientos() {
                 hover:shadow-lg
               "
             >
-              <div className="relative h-[190px]">
+              <div className="relative h-[220px]">
                 <Image
                   src={experience.image}
-                  alt={experience.title}
+                  alt={
+                    lang === 'es'
+                      ? `${experience.title}, alojamiento de Haiku Refugio & Spa`
+                      : `${experience.title}, accommodation at Haiku Refugio & Spa`
+                  }
                   fill
-                  className="object-cover"
+                  className="object-fill"
                 />
               </div>
 
@@ -102,17 +201,17 @@ export default function Alojamientos() {
                 </h3>
 
                 <p className="secondary-text-dark text-sm leading-relaxed mt-1">
-                  {experience.description}
+                  {experience.description[lang]}
                 </p>
 
                 <div className="mt-4 grid grid-cols-1 gap-2">
                   {experience.includes.map(({ icon: Icon, label }) => (
                     <div
-                      key={label}
+                      key={label.es}
                       className="flex items-center gap-2 secondary-text-dark text-sm"
                     >
                       <Icon className="text-icon" size={15} />
-                      <span>{label}</span>
+                      <span>{label[lang]}</span>
                     </div>
                   ))}
                 </div>
@@ -124,4 +223,3 @@ export default function Alojamientos() {
     </section>
   )
 }
-

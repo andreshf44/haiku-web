@@ -13,7 +13,7 @@ export default function ReservaFlotante() {
   const fechaInicioRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null)
 
-  const telefonoWhatsApp = '56944177821'
+  const telefonoWhatsApp = '56 9 8599 1949.'
 
   useEffect(() => {
     const handleScroll = () => {

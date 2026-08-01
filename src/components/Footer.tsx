@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Mini mapa */}
           <a
-            href="https://maps.google.com"
+            href="https://www.google.com/maps/place/Haiku+Refugio+%26+Spa/@-40.3114189,-71.9806811,17z/data=!3m1!4b1!4m6!3m5!1s0x9616cd406f87c88b:0x406e97dab0a0bb96!8m2!3d-40.3114189!4d-71.9806811!16s%2Fg%2F11zgscr3b6?entry=ttu&g_ep=EgoyMDI2MDcyOS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             className="relative overflow-hidden rounded-2xl min-h-[240px] group"
@@ -123,7 +123,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 secondary-text-light">
                 <FaWhatsapp />
-                <span>+56 9 4444 9999</span>
+                <span>+56 9 8599 1949</span>
               </div>
 
               <div className="flex items-center gap-3 secondary-text-light">
@@ -133,7 +133,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3 secondary-text-light">
                 <FaMapMarkerAlt />
-                <span>Pucón, Araucanía, Chile</span>
+                <span>Hueinahue, Futrono, Los Ríos, Chile.</span>
               </div>
             </div>
 
