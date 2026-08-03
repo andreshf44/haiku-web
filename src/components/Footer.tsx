@@ -276,7 +276,7 @@ export default function Footer() {
                 className="flex items-center gap-3 secondary-text-light hover-secondary-light"
               >
                 <FaEnvelope aria-hidden="true" />
-                <span>hola@haiku.cl</span>
+                <span>haikurefugio@gmail.com</span>
               </a>
 
               <a
