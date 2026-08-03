@@ -46,7 +46,7 @@ const experiencias = [
       es: 'Salto Hueinahue y cascada Trailef',
       en: 'Hueinahue Waterfall and Trailef Cascade',
     },
-    image: '/images/experiencias/trekking.jpg',
+    image: '/images/experiencias/portada-trekking.png',
     description: {
       es: 'Caminata inmersiva a través de bosque siempre verde hasta el Salto Hueinahue y cascada Trailef, donde se aprecia una vista panorámica del sector y la erosión que el agua ha dejado en las rocas con el paso del tiempo. La experiencia incorpora el relato de la historia local y la cosmovisión mapuche-huilliche.',
       en: 'An immersive hike through evergreen native forest to Hueinahue Waterfall and Trailef Cascade, offering panoramic views of the area and the formations created by water erosion over time. The experience also explores local history and the Mapuche-Huilliche worldview.',
@@ -62,7 +62,7 @@ const experiencias = [
       es: 'Aventura en Lago Maihue',
       en: 'Adventure on Lake Maihue',
     },
-    image: '/images/experiencias/sup.jpg',
+    image: '/images/experiencias/portada-stand.png',
     description: {
       es: 'Travesía guiada de Stand Up Paddle desde Puerto Rupumeica hasta la base del volcán Los Guindos, navegando en un entorno cordillerano de alto valor paisajístico. El recorrido permite descubrir la historia y geografía del Lago Maihue desde una perspectiva única.',
       en: 'A guided Stand Up Paddle journey from Puerto Rupumeica toward the base of Los Guindos volcano, surrounded by spectacular Andean scenery. Discover the history and geography of Lake Maihue from a unique perspective on the water.',
@@ -78,7 +78,7 @@ const experiencias = [
       es: 'Aventura entre cascadas',
       en: 'Adventure among waterfalls',
     },
-    image: '/images/experiencias/rapel.jpg',
+    image: '/images/experiencias/portada-rapel.png',
     description: {
       es: 'Ruta de turismo aventura que combina el descenso en rapel por destacadas caídas de agua de difícil acceso. Una experiencia de inmersión en el ecosistema, realizada con guías capacitados, protocolos de seguridad y equipamiento técnico certificado.',
       en: 'An adventure route combining rappelling descents alongside remote waterfalls. An immersive experience in the local ecosystem, accompanied by trained guides and carried out with safety protocols and certified technical equipment.',
@@ -94,7 +94,7 @@ const experiencias = [
       es: 'Descenso por cascada Trailef',
       en: 'Trailef Cascade descent',
     },
-    image: '/images/experiencias/canyoning.jpg',
+    image: '/images/experiencias/portada-canyoning.png',
     description: {
       es: 'Descenso de la cascada Trailef, saltando a pozas cristalinas, deslizándose por toboganes naturales de roca y descendiendo en rapel junto a la fuerza del agua, rodeado de bosque nativo. Una experiencia de adrenalina y conexión profunda con la naturaleza.',
       en: 'Descend Trailef Cascade by jumping into crystal-clear pools, sliding down natural rock formations and rappelling alongside the rushing water, surrounded by native forest. An experience filled with adrenaline and a deep connection with nature.',

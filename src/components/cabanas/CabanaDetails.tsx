@@ -19,8 +19,12 @@ export default function CabanaDetails({ blocks }: CabanaDetailsProps) {
           key={block.title}
           className={`
             grid
-            md:grid-cols-[2fr_3fr]
-            md:h-[260px]
+            ${
+              block.reverse
+                ? 'md:grid-cols-[3fr_2fr]'
+                : 'md:grid-cols-[2fr_3fr]'
+            }
+            md:h-[500px]
           `}
         >
           {/* Texto: en mobile siempre va primero */}
@@ -42,7 +46,9 @@ export default function CabanaDetails({ blocks }: CabanaDetailsProps) {
           {/* Imagen: en mobile siempre va después */}
           <div
             className={`
-              relative h-[240px] md:h-[260px]
+              relative
+              h-[300px]
+              md:h-[500px]
               ${block.reverse ? 'md:order-1' : 'md:order-2'}
             `}
           >
