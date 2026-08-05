@@ -41,16 +41,16 @@ export default function CabanaHero({
         className="object-cover brightness-75"
       />
 
-      <div className="content-hero absolute top-20 z-20 p-[25px] max-w-[720px] secondary-text-light">
+      <div className="content-hero principal-content absolute top-20 z-20 p-[25px] max-w-[720px] secondary-text-light">
         <div className="text-center md:text-left">
           <h1
             id="cabana-title"
-            className="text-[24px] md:text-[55px] leading-tight"
+            className="text-[32px] md:text-[55px] leading-tight"
           >
             {title}
           </h1>
 
-          <p className="text-lg mt-1">
+          <p className="text-[24px] md:text-lg mt-1">
             {subtitle}
           </p>
         </div>
