@@ -13,7 +13,7 @@ type CabanaDetailsProps = {
 
 export default function CabanaDetails({ blocks }: CabanaDetailsProps) {
   return (
-    <section className="bg-accent">
+    <section className="bg-accent flex flex-col gap-4">
       {blocks.map((block) => (
         <div
           key={block.title}
