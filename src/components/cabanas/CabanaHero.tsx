@@ -29,7 +29,7 @@ export default function CabanaHero({
 }: CabanaHeroProps) {
   return (
     <section
-      className="relative h-[70vh] w-full"
+      className="relative h-[100vh] md:h-[63vh] w-full"
       aria-labelledby="cabana-title"
     >
       <Image
