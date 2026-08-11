@@ -16,6 +16,8 @@ const translations = {
     reserve: 'Reservar esta cabaña',
     whatsapp: 'Respuesta vía WhatsApp',
     ariaReserve: 'Reservar la cabaña',
+    rights: 'Todos los derechos reservados.',
+    signature: 'Diseñado y desarrollado por Andrés Enrique',
   },
 
   en: {
@@ -24,6 +26,8 @@ const translations = {
     reserve: 'Book this cabin',
     whatsapp: 'Response via WhatsApp',
     ariaReserve: 'Book the cabin',
+    rights: 'All rights reserved.',
+    signature: 'Designed and developed by Andrés Enrique',
   },
 }
 
@@ -85,6 +89,23 @@ export default function CabanaFooter({
           />
         </div>
       </div>
+      {/* Línea final */}
+      <div className="border-t border-[#736536]/30 mt-10 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="secondary-text-light text-sm opacity-80">
+              © 2026 Haiku. {t.rights}
+            </p>
+
+            <a
+              href="https://andresenrique.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondary-text-light text-sm hover-secondary-light transition-colors"
+            >
+              {t.signature}
+            </a>
+          </div>
+        </div>
     </footer>
   )
 }

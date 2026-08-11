@@ -347,7 +347,7 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://mi-portafolio-sandy-five.vercel.app/"
+              href="https://andresenrique.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="secondary-text-light text-sm hover-secondary-light transition-colors"
