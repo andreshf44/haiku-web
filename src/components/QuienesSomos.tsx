@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 const translations = {
@@ -40,10 +41,13 @@ export default function QuienesSomos() {
           
           {/* IMAGE */}
           <div>
-            <img
+            <Image
               src="/images/descripcionLogo.png"
               alt={lang === 'es' ? 'Bosque Haiku' : 'Haiku forest'}
-              className="w-full rounded-2xl shadow-md hover:scale-105 transition-transform duration-500"
+              width={939}
+              height={455}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="w-full h-auto rounded-2xl shadow-md hover:scale-105 transition-transform duration-500"
             />
           </div>
 

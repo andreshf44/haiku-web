@@ -62,9 +62,12 @@ export default function CabanaHero({
                 key={feature.label}
                 className="grid place-items-center"
               >
-                <img
+                <Image
                   src={feature.icon}
                   alt={feature.alt}
+                  width={48}
+                  height={48}
+                  className="object-contain"
                 />
 
                 <span className="text-icon">

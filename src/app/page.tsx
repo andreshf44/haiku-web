@@ -1,6 +1,7 @@
 'use client'
 
 import Layout from '@/components/Layout'
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 const translations = {
@@ -63,18 +64,21 @@ export default function HomePage() {
 
           {/* Contenido central */}
           <div className="relative z-20 flex flex-col items-center justify-center px-6">
-            <img
-              src="/images/logo-crema.png"
-              alt="Haiku"
-              className="
-                h-auto
-                w-[280px]
-                object-contain
-                drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]
-                md:w-[430px]
-                lg:w-[520px]
-              "
-            />
+          <Image
+            src="/images/logo-crema.png"
+            alt="Haiku Refugio & Spa"
+            width={520}
+            height={520}
+            priority
+            className="
+              h-auto
+              w-[280px]
+              object-contain
+              drop-shadow-[0_8px_30px_rgba(0,0,0,0.45)]
+              md:w-[430px]
+              lg:w-[520px]
+            "
+          />
 
             <a
               href="#reservar"

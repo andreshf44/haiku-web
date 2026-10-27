@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 type CabanaGalleryProps = {
@@ -55,20 +56,32 @@ export default function CabanaGallery({ images }: CabanaGalleryProps) {
   }
 
   useEffect(() => {
+    if (!isOpen) return
+  
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isOpen) return
-
-      if (e.key === 'Escape') closeModal()
-      if (e.key === 'ArrowRight') nextImage()
-      if (e.key === 'ArrowLeft') prevImage()
+      if (e.key === 'Escape') {
+        setSelectedIndex(null)
+      }
+  
+      if (e.key === 'ArrowRight') {
+        setSelectedIndex((prev) =>
+          prev === null ? null : (prev + 1) % images.length
+        )
+      }
+  
+      if (e.key === 'ArrowLeft') {
+        setSelectedIndex((prev) =>
+          prev === null ? null : (prev - 1 + images.length) % images.length
+        )
+      }
     }
-
+  
     window.addEventListener('keydown', handleKeyDown)
-
+  
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen, selectedIndex])
+  }, [isOpen, images.length])
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
@@ -101,9 +114,12 @@ export default function CabanaGallery({ images }: CabanaGalleryProps) {
                 aria-label={`${t.imageAlt} ${index + 1}`}
                 className="overflow-hidden rounded-lg shadow-md group cursor-pointer"
               >
-                <img
+                <Image
                   src={image}
                   alt={`${t.imageAlt} ${index + 1}`}
+                  width={400}
+                  height={300}
+                  sizes="(max-width: 768px) 50vw, 20vw"
                   className="w-full h-[180px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </button>
@@ -152,10 +168,13 @@ export default function CabanaGallery({ images }: CabanaGalleryProps) {
             ‹
           </button>
 
-          <img
+          <Image
             src={images[selectedIndex]}
             alt={`${t.expandedImageAlt} ${selectedIndex + 1}`}
-            className="max-w-full max-h-[85vh] object-contain rounded-xl"
+            width={1600}
+            height={1200}
+            sizes="100vw"
+            className="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl"
             onClick={(e) => e.stopPropagation()}
           />
 

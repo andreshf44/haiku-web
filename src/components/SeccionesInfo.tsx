@@ -131,6 +131,12 @@ export default function SeccionesInfo() {
       : `Hello Excursiones Mañke, I'm contacting you through Haiku Refugio & Spa. I would like to book the ${activeExperience.title.en} experience.`
   )}`
 
+  const haikuWhatsapp = `https://wa.me/56985991949?text=${encodeURIComponent(
+    lang === 'es'
+      ? `Hola Haiku Refugio & Spa. Quisiera reservar la experiencia ${activeExperience.title.es}.`
+      : `Hello Haiku Refugio & Spa. I would like to book the ${activeExperience.title.en} experience.`
+  )}`
+
   return (
     <section id="experiencias" className="bg-dark w-full py-20 md:py-36 px-4 md:px-0">
       <div className="max-w-7xl mx-auto">
@@ -203,12 +209,18 @@ export default function SeccionesInfo() {
                 </p>
               </>
             ) : (
+             
               <a
-                href="/#reservar"
+                href={haikuWhatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-button-gold inline-block w-fit"
+                aria-label={`${t.book} ${activeExperience.title[lang]} con Haiku Refugio & Spa.`}
               >
                 {t.book}
               </a>
+  
+            
             )}
 
           </div>

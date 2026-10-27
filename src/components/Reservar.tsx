@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useSyncExternalStore } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -70,11 +70,36 @@ const translations = {
   },
 }
 
+const subscribe = (callback: () => void) => {
+  window.addEventListener('popstate', callback)
+
+  return () => {
+    window.removeEventListener('popstate', callback)
+  }
+}
+
+const getCabanaFromUrl = () => {
+  const params = new URLSearchParams(window.location.search)
+  const cabana = params.get('cabana')
+
+  return ['Roble', 'Canelo', 'Ulmo'].includes(cabana ?? '')
+    ? cabana!
+    : ''
+}
+
+const getServerSnapshot = () => ''
+
 export default function Reservar() {
   const { lang } = useLanguage()
   const t = translations[lang]
 
-  const [form, setForm] = useState({
+  const cabanaUrl = useSyncExternalStore(
+    subscribe,
+    getCabanaFromUrl,
+    getServerSnapshot
+  )
+
+  const [form, setForm] = useState(() => ({
     nombre: '',
     telefono: '',
     email: '',
@@ -82,19 +107,8 @@ export default function Reservar() {
     fechaSalida: '',
     cabana: '',
     mensaje: '',
-  })
+  }))
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const cabanaUrl = params.get('cabana')
-
-    if (cabanaUrl) {
-      setForm((prev) => ({
-        ...prev,
-        cabana: cabanaUrl,
-      }))
-    }
-  }, [])
 
   const fechaEntradaRef = useRef<HTMLInputElement>(null)
   const fechaSalidaRef = useRef<HTMLInputElement>(null)
@@ -123,7 +137,7 @@ export default function Reservar() {
 📞 ${t.whatsappMessage.phone}: ${form.telefono}
 📧 ${t.whatsappMessage.email}: ${form.email}
 
-🏡 ${t.whatsappMessage.cabin}: ${form.cabana}
+🏡 ${t.whatsappMessage.cabin}: ${form.cabana || cabanaUrl}
 
 📅 ${t.whatsappMessage.checkIn}: ${form.fechaEntrada}
 📅 ${t.whatsappMessage.checkOut}: ${form.fechaSalida}
@@ -275,7 +289,7 @@ ${t.whatsappMessage.closing}`
               <select
                 id="cabana"
                 name="cabana"
-                value={form.cabana}
+                value={form.cabana || cabanaUrl}
                 onChange={handleChange}
                 required
                 className="w-full p-3 rounded border border-gray-300 focus:outline-none focus:border-[#b98f5a]"

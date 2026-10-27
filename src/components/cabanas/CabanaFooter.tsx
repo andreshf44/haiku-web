@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { FaWhatsapp } from 'react-icons/fa'
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 type CabanaFooterProps = {
@@ -78,14 +79,17 @@ export default function CabanaFooter({
           </div>
         </div>
 
+        {/* Decoración */}
         <div
-          className="hidden md:flex justify-end opacity-25"
+          className="absolute right-0 bottom-0 opacity-20 pointer-events-none"
           aria-hidden="true"
         >
-          <img
-            src="/images/logo-haiku.png"
+          <Image
+            src="/images/bamboo-footer.png"
             alt=""
-            className="w-[180px] object-contain"
+            width={250}
+            height={250}
+            className="w-[250px] h-auto opacity-50"
           />
         </div>
       </div>

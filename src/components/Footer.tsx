@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useLanguage } from '@/context/LanguageContext'
 
 import {
   FaInstagram,
-  FaFacebookF,
   FaWhatsapp,
   FaEnvelope,
   FaMapMarkerAlt,
@@ -111,10 +111,12 @@ export default function Footer() {
         className="absolute right-0 bottom-0 opacity-20 pointer-events-none"
         aria-hidden="true"
       >
-        <img
+        <Image
           src="/images/bamboo-footer.png"
           alt=""
-          className="w-[250px]"
+          width={250}
+          height={250}
+          className="w-[250px] h-auto opacity-50"
         />
       </div>
 

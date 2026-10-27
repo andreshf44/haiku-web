@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -55,11 +56,13 @@ export default function Navbar() {
           className="relative flex h-16 w-[180px] items-center"
         >
           {/* Logo crema */}
-          <img
+          <Image
             src="/images/logo-extendido-crema.png"
             alt="Haiku"
+            width={180}
+            height={73}
             className={`
-              absolute h-16 object-contain transition-all duration-500
+              absolute h-16 w-auto object-contain transition-all duration-500
               ${
                 hasScrolled
                   ? 'opacity-0 scale-95'
@@ -69,11 +72,13 @@ export default function Navbar() {
           />
 
           {/* Logo verde */}
-          <img
+          <Image
             src="/images/logo-extendido.png"
             alt="Haiku"
+            width={180}
+            height={64}
             className={`
-              absolute h-16 object-contain transition-all duration-500
+              absolute h-16 w-auto object-contain transition-all duration-500
               ${
                 hasScrolled
                   ? 'opacity-100 scale-100'
