@@ -193,7 +193,7 @@ export default function Footer() {
         </div>
 
         {/* Información principal */}
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="flex flex-col md:flex-row md:justify-between gap-10">
 
           {/* Marca */}
           <div>
@@ -273,7 +273,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:hola@haiku.cl"
+                href="mailto:haikurefugio@gmail.com"
                 aria-label={t.emailLabel}
                 className="flex items-center gap-3 secondary-text-light hover-secondary-light"
               >
@@ -314,29 +314,6 @@ export default function Footer() {
                 <FaFacebookF size={18} aria-hidden="true" />
               </a>
               */}
-            </div>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h4 className="text-icon font-semibold mb-4">
-              {t.legal}
-            </h4>
-
-            <div className="flex flex-col gap-2">
-              <Link
-                href="#"
-                className="secondary-text-light hover-secondary-light"
-              >
-                {t.terms}
-              </Link>
-
-              <Link
-                href="#"
-                className="secondary-text-light hover-secondary-light"
-              >
-                {t.privacy}
-              </Link>
             </div>
           </div>
         </div>
